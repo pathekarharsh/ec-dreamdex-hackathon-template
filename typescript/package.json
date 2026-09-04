@@ -9,6 +9,7 @@
     "lifecycle": "tsx src/lifecycle.mjs",
     "redeem": "tsx src/redeem.mjs",
     "sentinel": "tsx src/agent.mjs",
+    "verify": "tsx src/verify.mjs",
     "config": "tsx src/config.mjs",
     "market": "tsx src/market.mjs"
   },
