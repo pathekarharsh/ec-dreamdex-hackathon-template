@@ -9,7 +9,8 @@
     "lifecycle": "tsx src/lifecycle.mjs",
     "redeem": "tsx src/redeem.mjs",
     "sentinel": "tsx src/agent.mjs",
-    "config": "tsx src/config.mjs"
+    "config": "tsx src/config.mjs",
+    "market": "tsx src/market.mjs"
   },
   "dependencies": {
     "@somnia-chain/markets-sdk": "^0.28.1",
