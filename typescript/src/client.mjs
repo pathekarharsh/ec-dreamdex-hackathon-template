@@ -9,11 +9,14 @@ import { config } from "dotenv";
 // Load the .env at the repo root, regardless of where the script is run from.
 config({ path: new URL("../../.env", import.meta.url) });
 
-const { PRIVATE_KEY, RPC_URL, WS_RPC_URL } = process.env;
+const { PRIVATE_KEY: rawPrivateKey, RPC_URL, WS_RPC_URL } = process.env;
 
-if (!PRIVATE_KEY || PRIVATE_KEY === "0x...") {
+if (!rawPrivateKey || rawPrivateKey === "0x...") {
   throw new Error("Set PRIVATE_KEY in .env (a funded Shannon testnet key).");
 }
+
+// Accept the common 64-character hex form as well as viem's 0x-prefixed form.
+const PRIVATE_KEY = rawPrivateKey.startsWith("0x") ? rawPrivateKey : `0x${rawPrivateKey}`;
 
 // The SDK requires an indexer URL at construction. Every read/write in this
 // starter is on-chain, so the value is never actually called here — but one must
