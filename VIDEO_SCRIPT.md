@@ -1,126 +1,140 @@
-# 🎬 Sentinel Reactive — 2 to 3 Minute Hackathon Demo Video Script
+# 🎬 Sentinel Reactive — Complete Demo Video Script (With Step-by-Step UI Actions)
 
-**Target Duration:** 2:30 – 3:00 minutes  
-**Tone:** Confident, technical, energetic, and clear  
-**Key Goal:** Show judges a working, autonomous AI agent executing live on Somnia Shannon Testnet with a live dashboard and verifiable on-chain transactions.
-
----
-
-## ⏱️ Video Breakdown at a Glance
-
-| Time | Scene | On-Screen Visual | Audio / Narration |
-| :--- | :--- | :--- | :--- |
-| **0:00 – 0:30** | Hook & Problem | DreamDEX Event Contracts UI | The challenge of 15m/60m binary prediction markets |
-| **0:30 – 1:00** | Solution Intro | Sentinel Reactive Dashboard | Introducing Sentinel Reactive: AI + Deterministic Risk + Somnia |
-| **1:00 – 1:50** | Live Execution Demo | Click "Run Live Cycle Now" | Real-time news analysis, Groq reasoning, on-chain execution |
-| **1:50 – 2:25** | Explorer & Mechanics | Somnia Shannon Explorer | Verifying the tx, PostOnly routing & dynamic auto-discovery |
-| **2:25 – 2:50** | Architecture & Risk | Architecture Diagram / Terminal | 4-layer risk gates & native Somnia WebSocket streaming |
-| **2:50 – 3:00** | Outro | GitHub Repo / Summary Slide | Ecosystem impact on DreamDEX & Somnia |
+**Total Duration:** 2:30 – 3:00 minutes  
+**Tone:** Confident, energetic, and clear  
+**Setup before recording:**
+1. Have **`http://localhost:3000/`** open in Tab 1 (make sure `npm start` is running in your terminal).
+2. Have **`https://shannon-explorer.somnia.network`** open in Tab 2.
+3. Have **`https://app.dreamdex.io/event-contracts`** open in Tab 3.
+4. Have your terminal ready in the background to show `npm run doctor`.
 
 ---
 
-## 🎙️ Detailed Script (Word-for-Word Voiceover & Screen Actions)
-
-### [0:00 – 0:30] SCENE 1: The Problem with Fast Prediction Markets
-**Visual on screen:**  
-Start on the [DreamDEX Event Contracts page](https://app.dreamdex.io/event-contracts) showing the fast 15-minute and 60-minute Up/Down binary prediction windows.
-
-> **Voiceover:**  
-> "Prediction markets are the ultimate frontier for real-time information discovery. On DreamDEX and the Somnia blockchain, event contracts settle rapidly in 15-minute and 1-hour windows.  
-> 
-> But for human traders, reacting in time is nearly impossible. Breaking news breaks in seconds. Evaluating geopolitical news, calculating probabilistic odds, sizing risk, and executing orders before the window closes requires superhuman speed.  
-> 
-> What if an autonomous AI agent could reason clearly, enforce strict risk guardrails, and react instantly on-chain?  
-> 
-> Meet **Sentinel Reactive**."
+## 🎙️ Video Script & Step-by-Step Visual Walkthrough
 
 ---
 
-### [0:30 – 1:00] SCENE 2: Introducing Sentinel Reactive
-**Visual on screen:**  
-Switch to the browser showing the Sentinel Reactive Dashboard running at **`http://localhost:3000/`**.  
-Highlight the top bar: `🟢 LIVE EXECUTION · Somnia Shannon 50312`, the connected wallet (`0xb6C0...fDAf`), and the live balance (`STT` gas and `tUSDC` collateral).
+### [0:00 – 0:30] Scene 1: The Problem & DreamDEX Context
+`[ACTION: Start video recording on Tab 3 showing the DreamDEX Event Contracts page https://app.dreamdex.io/event-contracts]`  
+`[ACTION: Slowly move cursor over the 15-minute and 60-minute Up/Down contract cards]`
 
-> **Voiceover:**  
-> "Sentinel Reactive is an autonomous AI trading agent and live intelligence dashboard built specifically for DreamDEX Event Contracts on Somnia Shannon testnet.  
+> **Say this:**  
+> "Welcome! This is DreamDEX Event Contracts running on the Somnia blockchain.  
 > 
-> In our dashboard, you can see our live status: we are connected live on-chain, funded with native STT gas and testnet USDC collateral, targeting active BTC and ETH 60-minute prediction windows.  
+> Here, traders can bet on binary outcomes—like whether Bitcoin or Ethereum will be Up or Down in short 15-minute or 1-hour windows.  
 > 
-> Sentinel combines ultra-fast LLM reasoning via **Groq Cloud** with deterministic on-chain risk gates, ensuring zero hallucinated trades and complete capital protection."
+> But for human traders, the real challenge is **speed**. Breaking news happens in seconds. Evaluating geopolitical events, estimating probabilistic odds, checking risk limits, and placing orders on-chain before the window expires is nearly impossible to do manually.  
+> 
+> That’s why we built **Sentinel Reactive**—an autonomous AI trading agent with deterministic risk guardrails and live sub-second reactivity on Somnia."
 
 ---
 
-### [1:00 – 1:50] SCENE 3: The Live Demonstration
-**Visual on screen:**  
-Cursor hovers over and clicks the **`⚡ Run Live Cycle Now`** button in the Autonomous Operator panel.  
-Show the live spinner `Running AI Pipeline...`.  
-Then show the Signal Room updating with the latest headline, the Groq reasoning, the `BUY_YES` badge, and the `● RISK GATE APPROVED` badge.
+### [0:30 – 1:00] Scene 2: The Sentinel Reactive Dashboard
+`[ACTION: Switch to Tab 1: http://localhost:3000/ showing the Sentinel Reactive Cyberpunk Dashboard]`  
+`[ACTION: Point cursor to the top-right badges: 'LIVE EXECUTION' and the wallet chip showing your balance]`
 
-> **Voiceover:**  
-> "Let's see it in action. I'll trigger a live cycle directly from the operator dashboard.  
+> **Say this:**  
+> "Here is the Sentinel Reactive Dashboard running live.  
 > 
-> Behind the scenes, Sentinel ingests breaking global headlines from NewsAPI. It passes each event to our Groq reasoning core running `openai/gpt-oss-120b`.  
+> In the top bar, you can see our system is in **LIVE EXECUTION** mode, connected to the **Somnia Shannon Testnet** (Chain 50312).  
 > 
-> The model extracts the directional bias—Up or Down—along with a calibrated probability and key evidence.  
+> Our wallet is funded with native **STT** for gas and **tUSDC** for market collateral.  
 > 
-> But AI alone isn't allowed to trade. The signal must pass our **deterministic risk engine**:
-> - It requires at least **72% confidence**.
-> - Enforces a strict **15-minute market cooldown**.
-> - Caps position size at **10 contracts**.
-> - And enforces an automatic **$25 daily loss circuit breaker**.  
-> 
-> If approved, our execution router immediately submits the order to DreamDEX on Somnia!"
+> In the metrics bar below, the agent is actively targeting the live BTC 60-minute trading window. Every signal we evaluate is powered by **Groq Cloud** using `openai/gpt-oss-120b` for ultra-fast, structured JSON reasoning."
 
 ---
 
-### [1:50 – 2:25] SCENE 4: Verifying On-Chain Proof & Smart Routing
-**Visual on screen:**  
-In the "On-Chain Trades & Activity" panel, point out the new trade row.  
-Click the **`Tx: 0x... ↗`** link to open the transaction in a new tab on **Somnia Shannon Explorer**.  
-Show the green `Success` status, the contract interaction, and the token transfer.
+### [1:00 – 1:45] Scene 3: Live Execution — Running the AI Trading Cycle
+`[ACTION: Move cursor to the Autonomous Operator section]`  
+`[ACTION: Highlight the '⚡ Run Live Cycle Now' button]`  
+`[ACTION: CLICK the '⚡ Run Live Cycle Now' button!]`  
+`[ACTION: Point cursor to the button as it displays the spinner: 'Running AI Pipeline...']`  
+`[ACTION: Wait 8–10 seconds while the pipeline ingests news, prompts Groq AI, verifies risk gates, and executes on-chain]`  
+`[ACTION: Point cursor to the green feedback banner that appears: '✅ Cycle Complete: Processed 10 headlines. Executed on-chain trade(s)!']`
 
-> **Voiceover:**  
-> "And here is the magic: our trade just landed on-chain!  
+> **Say this:**  
+> "Now let's see the agent execute live!  
 > 
-> Clicking the transaction hash opens the live Somnia Shannon Explorer. Here's our transaction confirmed with sub-second finality.  
+> I am clicking **'Run Live Cycle Now'**.  
 > 
-> Notice how Sentinel routes orders: it places **PostOnly maker orders** first to capture maker fee rebates. If the orderbook is tight and a PostOnly would cross, it gracefully falls back to an **Immediate-Or-Cancel (IOC)** taker order.  
+> `[Wait 5 seconds while spinner is running]`  
 > 
-> Even better—our dynamic market discovery continuously monitors Somnia block logs. When a 60-minute window finalizes, Sentinel automatically rotates to the next live window without any downtime."
+> As you can see, the pipeline is running in real-time. It ingests the latest market headlines via NewsAPI, streams them to Groq AI to calculate directional sentiment and confidence, and runs each signal through our deterministic risk engine.  
+> 
+> And look right here—the cycle is complete! The risk gate approved high-conviction trades, and our execution layer immediately submitted them to the DreamDEX orderbook on Somnia!"
 
 ---
 
-### [2:25 – 2:50] SCENE 5: Architecture & Developer Experience
-**Visual on screen:**  
-Briefly show terminal running `npm run doctor` showing all 6 green checks:
-`🚀 ALL CHECKS PASSED: Sentinel is production ready!`, or show the architecture ASCII diagram from the `README.md`.
+### [1:45 – 2:15] Scene 4: Inspecting AI Reasoning & Real On-Chain Proof
+`[ACTION: Scroll down slightly to the 'Latest Signal Analysis (Groq AI)' panel]`  
+`[ACTION: Point cursor to the 'BUY_YES' tag, the 'Confidence: 86%', and the '● RISK GATE APPROVED' badge]`  
+`[ACTION: Point cursor to the 'Groq AI Reasoning' and 'Key Evidence' text]`  
+`[ACTION: Move cursor to the right panel: 'On-Chain Trades & Activity']`  
+`[ACTION: CLICK the latest transaction link: 'Tx: 0x... ↗']`  
+`[ACTION: Tab 2 (Somnia Shannon Explorer) opens automatically. Show the green 'Success' status, block number, and contract interaction]`
 
-> **Voiceover:**  
-> "Architecturally, Sentinel is built with `@somnia-chain/markets-sdk` and connects directly to Somnia's JSON-RPC WebSockets for instant block and pool event streaming.  
+> **Say this:**  
+> "Let's inspect the intelligence:  
 > 
-> For developers and operators, everything is turnkey. A single command—`npm run doctor`—validates RPC connectivity, balances, AI inference, and market status.  
+> In the Signal Room, you can see the exact headline analyzed. Groq generated a **BUY_YES** signal with **86% confidence**, citing concrete evidence.  
 > 
-> You can run Sentinel in single-shot mode, launch the cyberpunk dashboard, or deploy it as a continuous autonomous daemon loop with `npm run agent`."
+> Because the confidence exceeded our strict **72% risk threshold**, the trade was approved.  
+> 
+> Now let's look at the On-Chain Activity panel on the right. Here is our live trade. When I click the transaction link...  
+> 
+> `[Explorer tab opens]`  
+> 
+> ...it opens the live **Somnia Shannon Explorer**! You can see the transaction is confirmed with block finality. This isn't a simulation—this is real collateral and a real order resting on the DreamDEX binary pool contract!"
 
 ---
 
-### [2:50 – 3:00] SCENE 6: Outro & Impact
-**Visual on screen:**  
-Return to the dashboard or the GitHub repository: `https://github.com/pathekarharsh/ec-dreamdex-hackathon-template`.
+### [2:15 – 2:35] Scene 5: Collateral Faucet & Smart Routing
+`[ACTION: Switch back to Tab 1 (Dashboard)]`  
+`[ACTION: Point cursor to the '💧 Claim 100 tUSDC Faucet' button]`  
+`[ACTION: CLICK the '💧 Claim 100 tUSDC Faucet' button!]`  
+`[ACTION: Wait 3–4 seconds as the button shows 'Claiming Faucet...']`  
+`[ACTION: Show the green success message: '💧 Faucet Success: Minted 100.00 tUSDC!']`  
+`[ACTION: Point cursor to the Collateral Balance metric showing the updated balance]`
 
-> **Voiceover:**  
-> "Sentinel Reactive brings intelligent volume, continuous liquidity, and transparent, risk-managed automation to DreamDEX and the Somnia ecosystem.  
+> **Say this:**  
+> "We also built direct operator controls into the UI. For instance, if you need more collateral, clicking **'Claim 100 tUSDC Faucet'**...  
 > 
-> The codebase is fully verified, open-source, and running live on testnet right now.  
+> `[Click button, wait 3 seconds]`  
+> 
+> ...calls the testnet faucet contract directly on Somnia, adding 100 tUSDC to our balance in seconds!  
+> 
+> Notice also our smart order routing: Sentinel places **PostOnly maker orders** to earn fee rebates, with an automatic fallback to **IOC taker crossing** if the book is tight. And our dynamic market discovery automatically rotates to the next live window when one finalizes."
+
+---
+
+### [2:35 – 2:50] Scene 6: Turnkey Developer Health Check
+`[ACTION: Switch to Terminal window]`  
+`[ACTION: Type and run: npm run doctor]`  
+`[ACTION: Highlight the output showing all 6 green checkmarks and '🚀 ALL CHECKS PASSED: Sentinel is production ready!']`
+
+> **Say this:**  
+> "For judges and developers wanting to run this locally, the experience is completely turnkey.  
+> 
+> Running `npm run doctor` performs a full 6-point diagnostic: verifying private keys, RPC latency, gas balances, collateral balances, active market discovery, and AI inference. Everything reports green out of the box."
+
+---
+
+### [2:50 – 3:00] Scene 7: Wrap-up & Conclusion
+`[ACTION: Switch back to the dashboard or your GitHub repository page]`
+
+> **Say this:**  
+> "Sentinel Reactive delivers the speed, intelligence, and risk management needed to bring autonomous liquidity and intelligent volume to DreamDEX on Somnia.  
+> 
+> The code is fully open source on GitHub, verified on testnet, and ready to deploy.  
 > 
 > Thank you for watching!"
 
 ---
 
-## 💡 Quick Tips for Recording:
-1. **Screen Resolution**: Record in 1080p (1920x1080) with browser zoom at 100% or 110% so all text and badges are crisp.
-2. **Tab Setup**: Have 3 tabs open in advance:
-   - Tab 1: `http://localhost:3000` (Sentinel Dashboard)
-   - Tab 2: `https://app.dreamdex.io/event-contracts` (DreamDEX Event Contracts)
-   - Tab 3: `https://github.com/pathekarharsh/ec-dreamdex-hackathon-template` (GitHub Repository)
-3. **Cursor Movement**: Move the cursor smoothly; highlight key badges like `🟢 LIVE EXECUTION`, `92.45 tUSDC`, and the clickable Explorer links.
+## 📋 Quick Cheat-Sheet for Recording
+
+1. **Tab 1:** `http://localhost:3000` (Make sure `node server.mjs` is running).
+2. **First Click:** Click **`⚡ Run Live Cycle Now`** → wait ~8 seconds → show green banner and new signal!
+3. **Second Click:** Click the new **`Tx: 0x... ↗`** link → shows Somnia Explorer with green `Success`!
+4. **Third Click:** Switch back to Dashboard, click **`💧 Claim 100 tUSDC Faucet`** → shows 100 tUSDC added!
+5. **Terminal:** Run `npm run doctor` → shows `🚀 ALL CHECKS PASSED`!
