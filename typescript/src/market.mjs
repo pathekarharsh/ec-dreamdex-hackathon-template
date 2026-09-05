@@ -1,4 +1,6 @@
 import { sentinelConfig } from "./config.mjs";
+import { pub, COLLATERAL, ex } from "./client.mjs";
+import { marketCreatorEventsAbi } from "../node_modules/@somnia-chain/markets-sdk/dist/eventsAbi.js";
 
 const ADDRESS = /^0x[a-fA-F0-9]{40}$/;
 
@@ -23,11 +25,86 @@ export function loadMarketConfig(env = process.env) {
   return { config, valid: errors.length === 0, errors };
 }
 
-export function printMarketConfig() {
-  const result = loadMarketConfig();
+let cachedResolution = null;
+let cacheTimestamp = 0;
+
+export async function resolveActiveMarket() {
+  const nowMs = Date.now();
+  if (cachedResolution && nowMs - cacheTimestamp < 60000) {
+    return cachedResolution;
+  }
+
+  const staticConf = loadMarketConfig();
+  if (staticConf.valid) {
+    try {
+      const mo = await ex.client.getMarketOnchain(staticConf.config.marketId);
+      if (mo.status === 1 && !mo.finalized) {
+        cachedResolution = { config: staticConf.config, valid: true, errors: [], onchain: mo };
+        cacheTimestamp = nowMs;
+        return cachedResolution;
+      }
+      console.log(`[market] Statically configured market is closed/finalized (status=${mo.status}). Auto-discovering live active window...`);
+    } catch {
+      // Fall through to auto-discovery
+    }
+  }
+
+  // Auto-discover live trading market from Somnia chain logs
+  try {
+    const mc = marketCreatorEventsAbi.find((e) => e.name === "MarketCreated");
+    const now = Math.floor(Date.now() / 1000);
+    const head = await pub.getBlockNumber();
+    const found = [];
+
+    for (let i = 0; i < 45; i++) {
+      const to = head - BigInt(i * 1000);
+      try {
+        const logs = await pub.getLogs({ event: mc, fromBlock: to - 999n, toBlock: to });
+        found.push(...logs.map((l) => l.args));
+      } catch {}
+    }
+
+    const live = found
+      .filter((m) => Number(m.expiry) > now + 60 && m.collateral?.toLowerCase() === COLLATERAL.toLowerCase())
+      .sort((a, b) => Number(a.expiry) - Number(b.expiry));
+
+    for (const m of live) {
+      try {
+        const mo = await ex.client.getMarketOnchain(m.marketId);
+        if (mo.status === 1 && !mo.finalized) {
+          const autoConfig = {
+            marketId: m.marketId,
+            pool: m.pool,
+            marketType: "binary",
+            yesTokenId: String(mo.yesId),
+            noTokenId: String(mo.noId),
+            asset: m.asset,
+            expiry: Number(m.expiry),
+            rpcUrl: sentinelConfig.rpcUrl,
+            wsRpcUrl: sentinelConfig.wsRpcUrl,
+          };
+          cachedResolution = { config: autoConfig, valid: true, errors: [], onchain: mo };
+          cacheTimestamp = nowMs;
+          return cachedResolution;
+        }
+      } catch {}
+    }
+  } catch (err) {
+    console.warn(`[market] Auto-discovery warning: ${err.message}`);
+  }
+
+  return staticConf;
+}
+
+export async function printMarketConfig() {
+  const result = await resolveActiveMarket();
   console.table({ ...result.config, status: result.valid ? "ready" : "incomplete" });
   if (result.errors.length) console.warn(`Market configuration incomplete: ${result.errors.join('; ')}`);
   return result;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) printMarketConfig();
+if (import.meta.url === `file://${process.argv[1]}`) {
+  await printMarketConfig();
+  process.exit(0);
+}
+

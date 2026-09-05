@@ -48,3 +48,5 @@ console.log(
   "\nPick a pool + marketId above and pass them to lifecycle.mjs " +
     "(shorter windows resolve sooner, which is handy for a demo)."
 );
+process.exit(0);
+

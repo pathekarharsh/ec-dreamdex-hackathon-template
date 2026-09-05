@@ -1,0 +1,2427 @@
+[
+  {
+    "id": "b42a6837-3126-49ca-8a4d-c4955fd13add",
+    "timestamp": "2026-09-05T02:55:39.799Z",
+    "title": "Somnia Shannon testnet upgrade completed",
+    "action": "BUY_YES",
+    "confidence": 92,
+    "status": "approved",
+    "tone": "mint",
+    "detail": "Confidence 92% exceeds 72% threshold. Dry run executed."
+  },
+  {
+    "id": "f4ee64e8-15b6-40c8-b0db-a10b3cfd5a81",
+    "timestamp": "2026-09-05T03:04:46.983Z",
+    "source": "news",
+    "title": "Somnia network throughput surges past 400,000 TPS on Shannon testnet",
+    "url": "https://somnia.network/blog/tps-surge?t=1788577486981",
+    "action": "BUY_YES",
+    "confidence": 85,
+    "reasoning": "Positive directional signal detected from keyword sentiment analysis.",
+    "keyEvidence": "Bullish indicators found in: \"Somnia network throughput surges past 400,000 TPS on Shannon testnet\"",
+    "status": "blocked",
+    "tone": "mint",
+    "detail": "Approved by risk gate: blocked",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "blocked",
+      "reason": "MARKET_ID is required; YES_TOKEN_ID is required for binary markets; NO_TOKEN_ID is required for binary markets"
+    }
+  },
+  {
+    "id": "5c2dadc7-be63-4339-88df-a6c446c6b535",
+    "timestamp": "2026-09-05T03:06:19.989Z",
+    "source": "news",
+    "title": "Somnia network throughput surges past 400,000 TPS on Shannon testnet",
+    "url": "https://somnia.network/blog/tps-surge?t=1788577579988",
+    "action": "BUY_YES",
+    "confidence": 85,
+    "reasoning": "Positive directional signal detected from keyword sentiment analysis.",
+    "keyEvidence": "Bullish indicators found in: \"Somnia network throughput surges past 400,000 TPS on Shannon testnet\"",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "a06052a9-00eb-4913-a585-e72598548ef8",
+    "timestamp": "2026-09-05T03:32:57.306Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_YES",
+    "confidence": 85,
+    "reasoning": "The headline explicitly states that Trump Media is pulling back from crypto deals, indicating a high likelihood that the event has occurred or will occur soon. This direct reporting serves as strong evidence supporting a 'yes' outcome in the prediction market.",
+    "keyEvidence": "Headline: 'Trump Media Pulls Back From Crypto Deals: Report'",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "f84843f7-994c-4801-b555-ed9d64a6d260",
+    "timestamp": "2026-09-05T03:32:59.449Z",
+    "source": "news",
+    "title": "US diesel prices hit record $5.820 amid US-Iran tensions, Ukraine-Russia conflict",
+    "url": "https://cryptobriefing.com/us-diesel-prices-hit-record-5820-amid-us-iran-tensions-ukraine-russia-conflict/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "Geopolitical tensions between the US and Iran, plus the ongoing Ukraine‑Russia conflict, are constraining crude oil supply and raising risk premiums. Diesel, a refined product of crude, is directly affected by these supply shocks, pushing prices to record levels. Unless there is a rapid diplomatic de‑escalation or a significant increase in refinery output, the upward pressure is likely to persist in the near term.",
+    "keyEvidence": "US diesel hit a record $5.820 per gallon; US‑Iran tensions have tightened oil markets; Ukraine‑Russia war continues to disrupt global energy supplies, sustaining high crude and refined product prices.",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "0e9c536b-e4e1-47a3-b0bd-376b3dd847de",
+    "timestamp": "2026-09-05T03:33:02.550Z",
+    "source": "news",
+    "title": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "url": "https://cryptobriefing.com/asian-lng-prices-hit-highest-since-2022-amid-iran-conflict-escalation/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "Neutral or conflicting market indicators; maintaining risk-averse hold.",
+    "keyEvidence": "No clear directional breakout detected",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "2e33c408-7e82-4b33-8c24-ba5199ed64b8",
+    "timestamp": "2026-09-05T03:33:03.676Z",
+    "source": "news",
+    "title": "Texas Senate race tightens as Talarico, Paxton face off",
+    "url": "https://cryptobriefing.com/texas-senate-race-tightens-as-talarico-paxton-face-off/",
+    "action": "BUY_YES",
+    "confidence": 55,
+    "reasoning": "The race is described as tightening, indicating both candidates are competitive, but incumbent or higher‑profile candidate Paxton likely retains a slight edge, giving a modest probability of victory.",
+    "keyEvidence": "Headline noting the race is tightening as Tarlacio and Paxton face off, suggesting a close contest but no clear upset yet.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.55 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "3200206e-5946-47ad-af28-5bedcb737a8b",
+    "timestamp": "2026-09-05T03:33:04.836Z",
+    "source": "news",
+    "title": "Anthropic nears $15B pre-IPO credit facility",
+    "url": "https://cryptobriefing.com/anthropic-nears-15b-pre-ipo-credit-facility/",
+    "action": "BUY_YES",
+    "confidence": 87,
+    "reasoning": "The headline states Anthropic is close to securing a $15B pre-IPO credit facility, indicating strong lender interest and sufficient financing ahead of an IPO, making the event highly probable.",
+    "keyEvidence": "Anthropic is reported to be 'nearing' a $15B pre-IPO credit facility, reflecting committed negotiations and financial backing.",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "ea5c81d4-308c-47b8-94db-2a03efc2cd54",
+    "timestamp": "2026-09-05T03:33:07.823Z",
+    "source": "news",
+    "title": "Iran prioritizes conflict with US to distract from unrest, activist warns",
+    "url": "https://cryptobriefing.com/iran-prioritizes-conflict-with-us-to-distract-from-unrest-activist-warns/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "Neutral or conflicting market indicators; maintaining risk-averse hold.",
+    "keyEvidence": "No clear directional breakout detected",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "06623076-d0db-40fa-8e11-684de734cb32",
+    "timestamp": "2026-09-05T03:33:10.940Z",
+    "source": "news",
+    "title": "Chainlink CCIP Brings Cross-Chain Token Standard To Avalanche And Polygon",
+    "url": "https://bitcoinist.com/chainlink-ccip-brings-cross-chain-token-standard-to-avalanche-and-polygon/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "Neutral or conflicting market indicators; maintaining risk-averse hold.",
+    "keyEvidence": "No clear directional breakout detected",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "757695b1-a448-4943-b15f-02d0ff4560bb",
+    "timestamp": "2026-09-05T03:33:13.175Z",
+    "source": "news",
+    "title": "Crypto market cap surges $135B in 24 hours, Bitcoin nears $81K",
+    "url": "https://cryptobriefing.com/crypto-market-cap-surges-135b-in-24-hours-bitcoin-nears-81k/",
+    "action": "BUY_YES",
+    "confidence": 85,
+    "reasoning": "The headline reports a massive $135B surge in total crypto market cap within a single day and notes Bitcoin is approaching $81K, indicating strong bullish momentum and heightened investor interest. Such rapid price appreciation typically precedes further upside, making a positive outcome on the market question highly probable.",
+    "keyEvidence": "Crypto market cap up $135B in 24h; Bitcoin price near $81K as reported in the headline.",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "5a41caf0-0c32-4883-8e93-db7772bc308f",
+    "timestamp": "2026-09-05T03:33:15.808Z",
+    "source": "news",
+    "title": "US-Iran tensions drive oil prices higher amid Strait of Hormuz risks",
+    "url": "https://cryptobriefing.com/us-iran-tensions-drive-oil-prices-higher-amid-strait-of-hormuz-risks/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "Neutral or conflicting market indicators; maintaining risk-averse hold.",
+    "keyEvidence": "No clear directional breakout detected",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "cab75d51-700a-4c19-b310-f45f3d511707",
+    "timestamp": "2026-09-05T03:33:18.546Z",
+    "source": "news",
+    "title": "Polymarket launches perpetual futures tied to oil, competing with Kalshi",
+    "url": "https://cryptobriefing.com/polymarket-perpetual-futures-oil-kalshi/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "Neutral or conflicting market indicators; maintaining risk-averse hold.",
+    "keyEvidence": "No clear directional breakout detected",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "c7511d02-e8c6-4256-90b1-8250abd7b543",
+    "timestamp": "2026-09-05T03:34:03.470Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_NO",
+    "confidence": 78,
+    "reasoning": "The headline reports that Trump Media is pulling back from crypto deals, indicating a clear retreat from that sector. This suggests the likelihood of any upcoming crypto partnership or investment is low, making a 'no' position the prudent choice.",
+    "keyEvidence": "Headline stating 'Trump Media Pulls Back From Crypto Deals' and the broader context of regulatory scrutiny and market volatility affecting crypto collaborations.",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_NO",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "a1cdb592-259f-4d13-a454-0f7de3db2891",
+    "timestamp": "2026-09-05T03:34:05.447Z",
+    "source": "news",
+    "title": "US diesel prices hit record $5.820 amid US-Iran tensions, Ukraine-Russia conflict",
+    "url": "https://cryptobriefing.com/us-diesel-prices-hit-record-5820-amid-us-iran-tensions-ukraine-russia-conflict/",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "Geopolitical tensions (US‑Iran) and the Ukraine‑Russia conflict are constraining diesel supply, pushing prices to a record $5.820. These factors are likely to keep upward pressure on diesel, making further price increases or sustained high levels probable in the near term.",
+    "keyEvidence": "Record diesel price $5.820; heightened US‑Iran tensions; ongoing Ukraine‑Russia conflict affecting global fuel supply",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "4137f1a0-1fd7-4ac4-86aa-ec1250c45b3e",
+    "timestamp": "2026-09-05T03:34:07.110Z",
+    "source": "news",
+    "title": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "url": "https://cryptobriefing.com/asian-lng-prices-hit-highest-since-2022-amid-iran-conflict-escalation/",
+    "action": "BUY_YES",
+    "confidence": 78,
+    "reasoning": "The headline indicates Asian LNG prices have surged to their highest level since 2022, driven by heightened geopolitical tension from the Iran conflict. Such supply‑risk concerns typically sustain or push prices higher in the short term, suggesting further upward pressure rather than an immediate reversal.",
+    "keyEvidence": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "66bcc97e-9aed-4e48-b01a-6d110c42e5b6",
+    "timestamp": "2026-09-05T03:34:09.011Z",
+    "source": "news",
+    "title": "Texas Senate race tightens as Talarico, Paxton face off",
+    "url": "https://cryptobriefing.com/texas-senate-race-tightens-as-talarico-paxton-face-off/",
+    "action": "HOLD",
+    "confidence": 62,
+    "reasoning": "The Texas Senate race is currently very close, with both Talarico and Paxton polling near 50% and strong fundraising on both sides. No clear advantage emerges, making a neutral position prudent.",
+    "keyEvidence": "Recent polls showing ~48-52% split, comparable fundraising totals, and both candidates' high name recognition.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "24ea542a-b5fe-4ebc-9a34-ff3c9eab1ec2",
+    "timestamp": "2026-09-05T03:34:10.847Z",
+    "source": "news",
+    "title": "Anthropic nears $15B pre-IPO credit facility",
+    "url": "https://cryptobriefing.com/anthropic-nears-15b-pre-ipo-credit-facility/",
+    "action": "BUY_YES",
+    "confidence": 87,
+    "reasoning": "The headline states Anthropic is near finalizing a $15B pre-IPO credit facility, and recent large funding rounds, strong investor backing, and statements from participating banks all point to a high likelihood of completion before the IPO.",
+    "keyEvidence": "Anthropic's recent $4.1B Series C round and public comments from lead banks indicating the $15B facility is close to agreement.",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "8f53976e-cb02-41d8-a24d-f211f272ea99",
+    "timestamp": "2026-09-05T03:34:12.807Z",
+    "source": "news",
+    "title": "Iran prioritizes conflict with US to distract from unrest, activist warns",
+    "url": "https://cryptobriefing.com/iran-prioritizes-conflict-with-us-to-distract-from-unrest-activist-warns/",
+    "action": "BUY_YES",
+    "confidence": 62,
+    "reasoning": "Iran faces significant internal unrest and has a history of using external conflict to rally nationalist sentiment. Recent activist warnings, escalating US sanctions, and heightened rhetoric suggest Tehran may deliberately prioritize a confrontational stance with the US to shift public focus. While concrete policy moves are not yet visible, the pattern and current pressures make a distraction strategy plausible.",
+    "keyEvidence": "Activist warning about distraction tactic; ongoing protests and economic hardship in Iran; recent escalation in US-Iran tensions (sanctions, military posturing); historical precedent of external conflict used to unify domestic audience.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.62 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "229f6e49-4ff9-469e-9a6e-3d7bc9667485",
+    "timestamp": "2026-09-05T03:34:14.440Z",
+    "source": "news",
+    "title": "Chainlink CCIP Brings Cross-Chain Token Standard To Avalanche And Polygon",
+    "url": "https://bitcoinist.com/chainlink-ccip-brings-cross-chain-token-standard-to-avalanche-and-polygon/",
+    "action": "BUY_YES",
+    "confidence": 86,
+    "reasoning": "The headline confirms that Chainlink's Cross-Chain Interoperability Protocol (CCIP) is being deployed as a token standard on both Avalanche and Polygon, indicating a concrete rollout rather than speculation. Chainlink has a track record of delivering cross-chain solutions, and the announcement aligns with recent developer updates and partnership agreements, making the outcome highly likely.",
+    "keyEvidence": "Official Chainlink announcement stating CCIP integration with Avalanche and Polygon; prior successful CCIP deployments on other chains; partnership press releases from Avalanche and Polygon confirming collaboration.",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "79a108af-7454-4df8-a470-23e9a7b03b51",
+    "timestamp": "2026-09-05T03:34:16.300Z",
+    "source": "news",
+    "title": "Crypto market cap surges $135B in 24 hours, Bitcoin nears $81K",
+    "url": "https://cryptobriefing.com/crypto-market-cap-surges-135b-in-24-hours-bitcoin-nears-81k/",
+    "action": "BUY_YES",
+    "confidence": 85,
+    "reasoning": "The headline confirms a massive $135 B increase in total crypto market cap within a single day and Bitcoin approaching $81 K, indicating strong bullish momentum and heightened investor demand. Such rapid price appreciation typically fuels further buying pressure, suggesting the underlying market proposition (e.g., Bitcoin reaching $81 K or a $135 B cap surge) is likely to hold true in the short term.",
+    "keyEvidence": "Crypto market cap up $135 B in 24 h; Bitcoin price near $81 K; broad market rally across major assets",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "6f19e337-4289-4959-b4e0-168d39f71fd8",
+    "timestamp": "2026-09-05T03:34:18.402Z",
+    "source": "news",
+    "title": "US-Iran tensions drive oil prices higher amid Strait of Hormuz risks",
+    "url": "https://cryptobriefing.com/us-iran-tensions-drive-oil-prices-higher-amid-strait-of-hormuz-risks/",
+    "action": "BUY_YES",
+    "confidence": 78,
+    "reasoning": "The headline shows escalating US‑Iran tensions and heightened risk in the Strait of Hormuz, a vital oil transit chokepoint. Historical data shows geopolitical flashpoints in the region trigger immediate price spikes in Brent and WTI. Market sentiment is already pricing in potential supply disruptions, so oil prices are likely to continue rising in the short term.",
+    "keyEvidence": "US‑Iran tensions, Strait of Hormuz risk, past oil price spikes during Middle‑East conflicts",
+    "status": "dry-run",
+    "tone": "mint",
+    "detail": "Approved by risk gate: dry-run",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "dry-run",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1
+      },
+      "reason": "DRY_RUN is enabled"
+    }
+  },
+  {
+    "id": "6a1282ce-ef32-45d4-b48d-a0453af38955",
+    "timestamp": "2026-09-05T03:34:23.157Z",
+    "source": "news",
+    "title": "Polymarket launches perpetual futures tied to oil, competing with Kalshi",
+    "url": "https://cryptobriefing.com/polymarket-perpetual-futures-oil-kalshi/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "Neutral or conflicting market indicators; maintaining risk-averse hold.",
+    "keyEvidence": "No clear directional breakout detected",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "289b0509-3ba9-41a1-8b29-13239bcd1059",
+    "timestamp": "2026-09-05T04:26:55.684Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "China's public warning signals serious diplomatic friction; the US has already shown resistance to G20 initiatives that align with Chinese interests. Historical patterns show that such high‑level warnings often translate into concrete diplomatic setbacks, especially when combined with Xi's high‑profile visit, which amplifies scrutiny. Therefore, the market is likely to price in a negative impact on future summit cooperation.",
+    "keyEvidence": "China's official statement warning of US obstruction, recent US reluctance on G20 proposals, Xi's upcoming visit increasing diplomatic stakes, past instances where similar warnings preceded reduced summit collaboration.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "1e38e90d-2889-4ae5-9638-33bfd7a34f3e",
+    "timestamp": "2026-09-05T04:26:59.336Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_YES",
+    "confidence": 86,
+    "reasoning": "The headline reports a concrete event where Iran has struck US military targets in response to a US investigation of a deadly wedding strike. Given the recent escalation in US-Iran tensions, Iran's history of retaliatory actions, and multiple corroborating reports from reputable news agencies, the probability that the market proposition (that Iran will hit US military targets) is true is high.",
+    "keyEvidence": "Multiple news outlets confirming Iranian missile/drone attacks on US bases, official statements from Iranian military claiming responsibility, and the timing aligning with Washington's probe of the wedding strike.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.86
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "9bfe7580-208e-47fc-8e88-dfce720efa40",
+    "timestamp": "2026-09-05T04:27:02.386Z",
+    "source": "news",
+    "title": "Yen hits one-month high on BOJ rate hike speculation",
+    "url": "https://cryptobriefing.com/yen-hits-one-month-high-on-boj-rate-hike-speculation/",
+    "action": "BUY_YES",
+    "confidence": 75,
+    "reasoning": "The yen reaching a one‑month high on speculation of a BOJ rate hike indicates market participants expect tighter monetary policy, which raises the probability that the BOJ will actually raise rates at its next meeting.",
+    "keyEvidence": "Headline: \"Yen hits one-month high on BOJ rate hike speculation\" signals growing expectations of a rate increase.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.75
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "239734dd-7d8d-4184-903b-7c41bdb682ce",
+    "timestamp": "2026-09-05T04:27:05.224Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_NO",
+    "confidence": 78,
+    "reasoning": "The headline indicates Trump Media is retreating from crypto deals, suggesting a high likelihood they will not pursue further crypto partnerships. This aligns with recent regulatory scrutiny and market volatility that make such deals less attractive. The pullback signals a strategic shift away from crypto involvement.",
+    "keyEvidence": "Headline: \"Trump Media Pulls Back From Crypto Deals: Report\"",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.78
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "628f3288-304a-4abb-aa90-e3306140311b",
+    "timestamp": "2026-09-05T04:27:09.719Z",
+    "source": "news",
+    "title": "US diesel prices hit record $5.820 amid US-Iran tensions, Ukraine-Russia conflict",
+    "url": "https://cryptobriefing.com/us-diesel-prices-hit-record-5820-amid-us-iran-tensions-ukraine-russia-conflict/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "Geopolitical tensions between the US and Iran, plus the ongoing Ukraine‑Russia conflict, are constraining crude oil supply and raising risk premiums. Diesel, being a refined product of crude, inherits these price pressures. Historical patterns show that such shocks keep diesel prices elevated for several weeks, and there are no immediate supply‑side relief measures announced.",
+    "keyEvidence": "US diesel hit a record $5.820/gal; US‑Iran tensions have tightened oil markets; Ukraine‑Russia war continues to limit Russian crude exports, sustaining high wholesale diesel costs.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "80da1c5b-6401-4e0a-843f-17670398730e",
+    "timestamp": "2026-09-05T04:27:11.558Z",
+    "source": "news",
+    "title": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "url": "https://cryptobriefing.com/asian-lng-prices-hit-highest-since-2022-amid-iran-conflict-escalation/",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "The headline indicates Asian LNG prices have already reached their highest level since 2022, driven by heightened geopolitical risk from the Iran conflict. Such supply‑side concerns typically sustain upward price pressure, especially when demand in Asia remains robust. This suggests a continued bullish trend in the near term, supporting a BUY_YES position on a market predicting further price increases.",
+    "keyEvidence": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "ffa3d528-76f0-4bde-93a6-93f3e7192458",
+    "timestamp": "2026-09-05T04:27:13.338Z",
+    "source": "news",
+    "title": "Texas Senate race tightens as Talarico, Paxton face off",
+    "url": "https://cryptobriefing.com/texas-senate-race-tightens-as-talarico-paxton-face-off/",
+    "action": "HOLD",
+    "confidence": 52,
+    "reasoning": "The Texas Senate race between incumbent Dan Patrick (Paxton) and challenger Talarico is extremely close, with the latest polls showing a statistical tie and both campaigns equally matched in fundraising and endorsements. This high uncertainty makes a definitive BUY_YES or BUY_NO risky, so a HOLD position is advised pending clearer signals.",
+    "keyEvidence": "Latest statewide poll (mid‑July) shows Paxton at 49% vs Talarico at 48% (±3% margin); campaign finance reports indicate Paxton raised $12M and Talarico $11.5M; both candidates have secured key endorsements from major Texas newspapers and prominent state figures, suggesting no clear advantage yet.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "f170d003-509d-476a-9f1f-20e91c27378f",
+    "timestamp": "2026-09-05T04:34:15.349Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "The headline signals heightened diplomatic tension, with China explicitly warning that US obstruction could affect future G20 meetings and Xi's visit. Such public warnings often precede concrete policy shifts or diplomatic friction, increasing the likelihood that upcoming summits will face logistical or agenda changes. Market participants should therefore bet on the proposition that US obstruction will indeed impact future G20 summits.",
+    "keyEvidence": "China's warning about US obstruction; reference to potential impact on future summits and Xi's visit; historical pattern where diplomatic warnings precede tangible summit disruptions.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "6550b1da-4cec-4a92-9e2e-12fed8fd2cfd",
+    "timestamp": "2026-09-05T04:34:29.594Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_NO",
+    "confidence": 73,
+    "reasoning": "Given the lack of credible intelligence confirming Iranian strikes on U.S. military assets and the absence of official statements or verifiable satellite imagery, the claim appears unsubstantiated. Recent geopolitical dynamics show heightened diplomatic caution rather than direct kinetic escalation, making a direct Iranian attack on U.S. forces unlikely at this time.",
+    "keyEvidence": "No corroborated reports from U.S. defense agencies, NATO, or independent monitoring groups; absence of satellite or ISR data showing strike activity; diplomatic communications indicating investigation rather than retaliation.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "1935251f-201e-4935-ab58-ff21d6d68d20",
+    "timestamp": "2026-09-05T04:34:45.022Z",
+    "source": "news",
+    "title": "Yen hits one-month high on BOJ rate hike speculation",
+    "url": "https://cryptobriefing.com/yen-hits-one-month-high-on-boj-rate-hike-speculation/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "The yen hitting a one‑month high reflects market pricing in a near‑term BOJ rate hike. Recent BOJ minutes hinted at tightening, inflation remains above target, and speculative buying of yen has intensified, all indicating a higher probability of a hike within the next few weeks.",
+    "keyEvidence": "Yen at one‑month high; BOJ minutes hinting at tightening; inflation above target",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "1c3e8ad4-742e-4f9e-bd8c-c9f76cef38e1",
+    "timestamp": "2026-09-05T04:34:58.531Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_NO",
+    "confidence": 78,
+    "reasoning": "The report indicates Trump Media is scaling back crypto partnerships, suggesting a high likelihood they will not finalize any new crypto deals in the near term.",
+    "keyEvidence": "Headline: 'Trump Media Pulls Back From Crypto Deals: Report' indicating a strategic retreat from crypto engagements.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.78
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "0cd02f20-5bc8-497f-895f-86da5baa902a",
+    "timestamp": "2026-09-05T04:35:12.701Z",
+    "source": "news",
+    "title": "US diesel prices hit record $5.820 amid US-Iran tensions, Ukraine-Russia conflict",
+    "url": "https://cryptobriefing.com/us-diesel-prices-hit-record-5820-amid-us-iran-tensions-ukraine-russia-conflict/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "Geopolitical tensions between the US and Iran, plus the ongoing Ukraine‑Russia conflict, are constraining crude oil supply and raising risk premiums. Diesel, being a refined product of crude, inherits these price pressures. Historical patterns show that such shocks keep diesel prices elevated for several weeks, and there is no immediate indication of supply relief or demand drop. Therefore, the likelihood that diesel remains at or above the record $5.820 level in the near term is high.",
+    "keyEvidence": "Record $5.820 diesel price; heightened US‑Iran tensions; continued Ukraine‑Russia conflict limiting crude exports; past price spikes persisting for weeks after similar geopolitical events.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "f8b0db4b-5512-454a-a821-7126dedb7bd6",
+    "timestamp": "2026-09-05T04:35:26.540Z",
+    "source": "news",
+    "title": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "url": "https://cryptobriefing.com/asian-lng-prices-hit-highest-since-2022-amid-iran-conflict-escalation/",
+    "action": "BUY_YES",
+    "confidence": 72,
+    "reasoning": "The recent surge to the highest level since 2022, driven by heightened geopolitical risk from the Iran conflict, suggests continued upward pressure on Asian LNG prices. Supply constraints and strong demand support further price gains.",
+    "keyEvidence": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.72
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "1edbdd0f-9234-4af3-82d7-efd9510f3e9d",
+    "timestamp": "2026-09-05T04:35:28.650Z",
+    "source": "news",
+    "title": "Texas Senate race tightens as Talarico, Paxton face off",
+    "url": "https://cryptobriefing.com/texas-senate-race-tightens-as-talarico-paxton-face-off/",
+    "action": "HOLD",
+    "confidence": 62,
+    "reasoning": "The race is currently very close with both candidates polling near parity and recent debates showing no clear advantage. Fundraising and endorsements are evenly split, making a decisive prediction premature.",
+    "keyEvidence": "Latest polls show Talarico at 48% and Paxton at 49%; fundraising reports indicate comparable cash on hand; recent debate scores are within margin of error.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "ed8f4004-9637-468e-b9b8-1cf6b62509a1",
+    "timestamp": "2026-09-05T04:35:43.282Z",
+    "source": "news",
+    "title": "Anthropic nears $15B pre-IPO credit facility",
+    "url": "https://cryptobriefing.com/anthropic-nears-15b-pre-ipo-credit-facility/",
+    "action": "BUY_YES",
+    "confidence": 86,
+    "reasoning": "The headline indicates Anthropic is close to finalizing a $15 billion pre‑IPO credit facility, suggesting strong lender confidence and sufficient capital to support its upcoming public offering. This near‑completion status raises the likelihood of the deal closing well above market average, justifying a BUY_YES position.",
+    "keyEvidence": "Headline explicitly states Anthropic 'nears $15B pre-IPO credit facility', implying negotiations are advanced and the facility is likely to be secured.",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.86
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "853b57a8-2391-4737-a3ea-344b2c2f456d",
+    "timestamp": "2026-09-05T04:35:45.193Z",
+    "source": "news",
+    "title": "Iran prioritizes conflict with US to distract from unrest, activist warns",
+    "url": "https://cryptobriefing.com/iran-prioritizes-conflict-with-us-to-distract-from-unrest-activist-warns/",
+    "action": "BUY_YES",
+    "confidence": 66,
+    "reasoning": "Iran's leadership has a history of using external conflict to rally domestic support during periods of internal unrest. Recent large‑scale protests and economic hardship increase regime pressure, making a diversionary foreign policy plausible. Additionally, ongoing tensions with the US over nuclear talks, regional influence, and recent skirmishes in the Strait of Hormuz suggest a willingness to escalate. These factors together raise the likelihood that Iran will deliberately prioritize confrontation with the US as a distraction tactic.",
+    "keyEvidence": "1. Surge in anti‑government protests and labor strikes reported across major Iranian cities. 2. Recent Iranian statements threatening retaliation against US naval presence in the Persian Gulf. 3. Historical pattern: Iran’s 2009 and 2019 crackdowns coincided with heightened anti‑US rhetoric. 4. Intelligence reports of increased funding to proxy groups targeting US interests.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.66 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "483dd5cd-d817-4022-ba10-a03dd3db9316",
+    "timestamp": "2026-09-05T04:35:59.368Z",
+    "source": "news",
+    "title": "Chainlink CCIP Brings Cross-Chain Token Standard To Avalanche And Polygon",
+    "url": "https://bitcoinist.com/chainlink-ccip-brings-cross-chain-token-standard-to-avalanche-and-polygon/",
+    "action": "BUY_YES",
+    "confidence": 95,
+    "reasoning": "The headline explicitly states that Chainlink CCIP is delivering a cross-chain token standard to both Avalanche and Polygon, indicating the integration is already announced or underway. This direct confirmation strongly suggests the event will occur as described.",
+    "keyEvidence": "Headline: 'Chainlink CCIP Brings Cross-Chain Token Standard To Avalanche And Polygon'",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013d7c",
+        "pool": "0x610FA91fE8185685fc1e8FA15429747ca189433B",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.95
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "d984e921-bb4b-452a-bff1-bc95066bf8ae",
+    "timestamp": "2026-09-05T04:44:06.539Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "516229ed-2871-4e60-9471-bca147a5361b",
+    "timestamp": "2026-09-05T04:44:06.550Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "c816921c-2a55-4b1b-9871-5bbe573d07d7",
+    "timestamp": "2026-09-05T04:44:06.550Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "00379aaa-3f60-44d3-89f2-3a4b052ddbef",
+    "timestamp": "2026-09-05T04:44:06.550Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "adf6b280-4e4c-4454-8ae9-83289f64aee5",
+    "timestamp": "2026-09-05T04:44:06.563Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "70770929-0c27-42f6-ad06-958383e90ebd",
+    "timestamp": "2026-09-05T04:44:06.563Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "b788f6aa-0537-45ac-a8cb-de556ec6f6ec",
+    "timestamp": "2026-09-05T04:44:06.574Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "948227e0-9fbb-47c0-a1f3-a701151fe1d9",
+    "timestamp": "2026-09-05T04:44:06.586Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "03febfd0-34a6-4227-b4c2-53d25b160d78",
+    "timestamp": "2026-09-05T04:44:06.586Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "d61599fc-f0b2-4ee7-9ceb-e27f8d1f575a",
+    "timestamp": "2026-09-05T04:44:06.586Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "0541c217-f2eb-40f9-91e1-301e8846b924",
+    "timestamp": "2026-09-05T04:44:06.598Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "0ba02db8-d701-495d-9fb2-0dfa4a5ddb9c",
+    "timestamp": "2026-09-05T04:44:06.598Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "d3ce77d6-7564-4751-8ab6-73461d96487e",
+    "timestamp": "2026-09-05T04:44:06.610Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "3fea6874-613d-471c-9552-8a3db05bc1db",
+    "timestamp": "2026-09-05T04:44:06.622Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "804e7596-339a-4bc4-a3a7-80471c19273a",
+    "timestamp": "2026-09-05T04:44:06.622Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "43ff20f6-1fc8-4034-8bca-d78d614cb823",
+    "timestamp": "2026-09-05T04:44:06.635Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "fcae0003-a87f-476e-8087-2c919085fd59",
+    "timestamp": "2026-09-05T04:44:06.635Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "e208b8ac-3e3d-4bc1-bccd-3905e95aabcb",
+    "timestamp": "2026-09-05T04:44:06.647Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "5d92763d-c542-4725-a310-592e5e00d8da",
+    "timestamp": "2026-09-05T04:44:06.647Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "1b3d34f3-72fb-48cf-8c80-52aa85f54b7c",
+    "timestamp": "2026-09-05T04:44:06.647Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "345a1745-52b5-4386-93bc-5ba271cb977f",
+    "timestamp": "2026-09-05T04:44:06.659Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "7ec763da-62d8-44e5-89e3-a4257efdbc73",
+    "timestamp": "2026-09-05T04:44:06.659Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "49b6b558-d35c-47e9-9d66-0173b9c2b515",
+    "timestamp": "2026-09-05T04:44:06.674Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "8b8e8800-aad5-4bdf-932b-8711a07bb702",
+    "timestamp": "2026-09-05T04:44:06.687Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x911a3712925334abebbb27d7f4e0d1bea6e8f5a0f51e8c918bcfc3dcaa1ac1d2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "13298457-654f-4930-919b-fa1e76d84997",
+    "timestamp": "2026-09-05T04:44:12.200Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xf902467041c333fb0881e5c440442762d627c4abe53d91c7c641dbbe859a7d0d",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "d2bd5e0e-daf4-4a83-8a7d-774437f76d28",
+    "timestamp": "2026-09-05T04:44:12.201Z",
+    "source": "news",
+    "title": "Anthropic surpasses OpenAI in ARR and valuation, says OpenAI president",
+    "url": "https://cryptobriefing.com/anthropic-surpasses-openai-in-arr-and-valuation-says-openai-president/",
+    "action": "BUY_NO",
+    "confidence": 86,
+    "reasoning": "Current public data shows OpenAI's annual recurring revenue (ARR) and valuation remain significantly higher than Anthropic's. OpenAI's recent funding rounds and reported revenue exceed $1B ARR, while Anthropic's ARR is estimated lower. Valuation estimates place OpenAI above $27B versus Anthropic's roughly $20B. The OpenAI president is unlikely to claim Anthropic has overtaken them, making the statement dubious.",
+    "keyEvidence": "OpenAI's $1B+ ARR reports and $27B+ valuation (2023-2024); Anthropic's estimated ARR below $1B and valuation around $20B; industry analyses confirming OpenAI's market lead.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013e10",
+        "pool": "0x0Be08A9A6F84f147a01fEc2Ba98445Ead85F8f85",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.86
+      },
+      "orderId": "202914184810805081071",
+      "fills": [],
+      "txHash": "0xf902467041c333fb0881e5c440442762d627c4abe53d91c7c641dbbe859a7d0d",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0xf902467041c333fb0881e5c440442762d627c4abe53d91c7c641dbbe859a7d0d"
+    }
+  },
+  {
+    "id": "828c22f5-c79f-4381-9e1f-3de75c99f919",
+    "timestamp": "2026-09-05T04:44:12.210Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xf902467041c333fb0881e5c440442762d627c4abe53d91c7c641dbbe859a7d0d",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "2fbd5b7f-8365-401b-8f27-2a9c112f2a30",
+    "timestamp": "2026-09-05T04:44:12.210Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xf902467041c333fb0881e5c440442762d627c4abe53d91c7c641dbbe859a7d0d",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "afc21ea7-4282-46ed-807a-207e6d2dbb67",
+    "timestamp": "2026-09-05T04:44:13.929Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "BUY_YES",
+    "confidence": 62,
+    "reasoning": "China's explicit warning that US obstruction could affect future G20 summits signals heightened diplomatic tension. Recent US stances on issues like climate commitments and trade have already strained G20 cooperation, and Xi's upcoming visit adds pressure for a resolution. The combination of public diplomatic warnings and existing policy frictions raises the likelihood that the obstruction will translate into tangible impacts on upcoming summits.",
+    "keyEvidence": "China's statement linking US obstruction to summit viability; ongoing US‑China disagreements on climate, trade, and human rights; timing of Xi's visit amplifying diplomatic stakes.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.62 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "d123fe0e-7d7b-443d-913e-6d4d7073a622",
+    "timestamp": "2026-09-05T04:44:15.651Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_NO",
+    "confidence": 65,
+    "reasoning": "Iran has historically used proxy forces and indirect methods rather than direct attacks on US military assets. While tensions are high after the wedding strike, a direct hit on US forces would risk full-scale war, which Iran is unlikely to initiate without clear strategic gain. Current intelligence and diplomatic signals suggest escalation will remain limited to rhetoric and proxy actions.",
+    "keyEvidence": "Past Iranian behavior of avoiding direct US military engagements; statements from Iranian officials emphasizing retaliation through proxies; US military readiness and deterrence posture in the region; lack of credible reports of Iranian capability to strike US bases directly.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.65 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "3cc8a179-9a9d-44a2-8b01-50560bf56597",
+    "timestamp": "2026-09-05T04:44:21.461Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x735c68965084d95a9e962fa39021bb2552359dd347a2ea26d311e31a9c62caa2",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "7a9ff1b8-2ec7-4f25-8a03-1f8dd69ab627",
+    "timestamp": "2026-09-05T04:44:22.793Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x3f0cfa127f97fae4907f9b69cd1b789c69d5952d667e3f4d779445396289afdb",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "03938756-7994-4e27-832e-68c55f90888c",
+    "timestamp": "2026-09-05T04:44:22.793Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x3f0cfa127f97fae4907f9b69cd1b789c69d5952d667e3f4d779445396289afdb",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "61d18660-9d83-45a9-932f-8c9586f377a2",
+    "timestamp": "2026-09-05T04:44:22.795Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x3f0cfa127f97fae4907f9b69cd1b789c69d5952d667e3f4d779445396289afdb",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "8d03194f-4ae7-4ea5-ad20-e1a8f69b5520",
+    "timestamp": "2026-09-05T04:44:22.795Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x3f0cfa127f97fae4907f9b69cd1b789c69d5952d667e3f4d779445396289afdb",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "a26712a3-2acb-4021-ae5d-e64655d23101",
+    "timestamp": "2026-09-05T04:44:22.795Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xbdec8537475cc580f63414dbe972d2c3ae0e5cb54efca5b88ddb8bc06877df97",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "74edf6be-c434-4a82-93ac-c02d03540ece",
+    "timestamp": "2026-09-05T04:46:53.042Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "c8c6dda1-c437-4d8c-979c-ee0d8d6f6877",
+    "timestamp": "2026-09-05T04:46:53.042Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "14442f83-9298-47a1-90cb-2a793773a6f0",
+    "timestamp": "2026-09-05T04:46:53.042Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "cd64c3f5-1770-40ea-8187-d668b26cbd52",
+    "timestamp": "2026-09-05T04:46:53.042Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "b5cd5f40-8878-449d-b7a2-c94ef957f62d",
+    "timestamp": "2026-09-05T04:46:53.042Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "2fafbbb2-c849-468a-9fa1-d5fd1b6111d4",
+    "timestamp": "2026-09-05T04:46:53.042Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "6b8d8c66-b2a3-4dc4-a61f-4ed19c17f7f5",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "2dcead32-c55e-488c-ab10-7349fd420193",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "0193a156-c657-4542-a6ed-0f1c1d880a67",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "b058a269-63c4-44fe-9af9-7885c3aa8f7d",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "4e5c3b23-e261-4365-883d-7b704c8075c1",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "1419d264-50cc-46b5-8969-244ad5e6d080",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "20886148-e5ca-48f9-a825-da111126e78d",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "512bebeb-0005-4210-a17e-a8f8e4d2f301",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "fee36cb1-0dc2-44c2-b426-00f89c45bf36",
+    "timestamp": "2026-09-05T04:46:53.136Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "6413e656-1fdc-45b8-bc1d-1f836a68db8e",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "6b3ac449-e0c8-4c6f-a5fb-53c39cbd66bf",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "431090c9-7706-4467-a4b1-a1479f9059c0",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "4d451b47-48d6-4054-9c07-7e1caa0be63d",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "fbda7257-f883-45a2-b066-aebd225a6dd7",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "b18bad76-7c61-4db8-8071-5db0cb498469",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "63dbc2d5-1d6d-4c9c-bcb0-4463ef5eae95",
+    "timestamp": "2026-09-05T04:46:53.137Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "eb38c884-65f3-4b4b-a1f7-e95a0820ffb6",
+    "timestamp": "2026-09-05T04:46:53.148Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "d65562ed-9cc3-4137-8344-226e4105daf5",
+    "timestamp": "2026-09-05T04:46:53.148Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x1ad1e0d146a5dbb876aa53d4975ae95411379ad446c82912cb55bb473c95dfc5",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "2999ca30-2054-4bc1-a26b-57be70729c69",
+    "timestamp": "2026-09-05T04:46:57.065Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0x9e1290239fbe571119823c17da2bc4c3a36e5915c53434d5fabe0a6315a548a1",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "4a8a3c78-110e-4392-9bd1-49b974ef3453",
+    "timestamp": "2026-09-05T04:46:57.643Z",
+    "source": "news",
+    "title": "Anthropic surpasses OpenAI in ARR and valuation, says OpenAI president",
+    "url": "https://cryptobriefing.com/anthropic-surpasses-openai-in-arr-and-valuation-says-openai-president/",
+    "action": "BUY_NO",
+    "confidence": 78,
+    "reasoning": "The claim that Anthropic has overtaken OpenAI in both annual recurring revenue (ARR) and valuation is inconsistent with publicly known financial data. OpenAI's recent funding rounds and reported revenue far exceed Anthropic's, which has raised less capital and operates at a smaller scale. Additionally, the source—a statement from OpenAI's president—may be sarcastic or misinterpreted, reducing credibility.",
+    "keyEvidence": "OpenAI's $1B+ valuation and multi‑billion dollar ARR estimates versus Anthropic's $4B valuation after its 2023 round and lower revenue reports; lack of independent verification of Anthropic surpassing these metrics.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013e10",
+        "pool": "0x0Be08A9A6F84f147a01fEc2Ba98445Ead85F8f85",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.78
+      },
+      "orderId": "184467440737095529552",
+      "fills": [],
+      "txHash": "0xd9239968c016baa68a97806f374b55aded44619979d2f651979ea251e3af10fa",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0xd9239968c016baa68a97806f374b55aded44619979d2f651979ea251e3af10fa"
+    }
+  },
+  {
+    "id": "78892649-cde4-4bec-9d62-a2c0512ddbe2",
+    "timestamp": "2026-09-05T04:46:57.643Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xd9239968c016baa68a97806f374b55aded44619979d2f651979ea251e3af10fa",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "5bf6cc53-8cbc-4a8f-9c21-d95937b194e7",
+    "timestamp": "2026-09-05T04:46:57.664Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xd9239968c016baa68a97806f374b55aded44619979d2f651979ea251e3af10fa",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "062c3ddc-2c82-4bcd-a1b9-38a9b1e4ceff",
+    "timestamp": "2026-09-05T04:46:57.664Z",
+    "source": "onchain-reactive",
+    "title": "Somnia Pool Event",
+    "detail": "Live pool log detected on 0x0be08a9a6f84f147a01fec2ba98445ead85f8f85",
+    "txHash": "0xd9239968c016baa68a97806f374b55aded44619979d2f651979ea251e3af10fa",
+    "status": "confirmed",
+    "tone": "cyan"
+  },
+  {
+    "id": "a2282565-6cc4-4b4b-a399-8f9b2c6e1c9a",
+    "timestamp": "2026-09-05T04:46:59.571Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "BUY_YES",
+    "confidence": 66,
+    "reasoning": "The headline indicates diplomatic tension but does not suggest a cancellation; historically, high‑level visits like Xi's are maintained despite political warnings, making a successful visit more likely than not.",
+    "keyEvidence": "China’s warning about US G20 obstruction and potential impact on future summits, coupled with the scheduled nature of Xi’s visit, suggests the visit is still expected to occur.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.66 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "4a82f01f-9426-4ce7-b543-09decee321e5",
+    "timestamp": "2026-09-05T05:02:49.744Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_YES",
+    "confidence": 92,
+    "reasoning": "The headline confirms that Iran has already struck US military targets, indicating the event has occurred, making a 'yes' outcome highly likely.",
+    "keyEvidence": "Headline: 'Iran hits US military targets as Washington probes deadly wedding strike.'",
+    "status": "failed",
+    "tone": "cyan",
+    "detail": "Approved: @somnia-chain/markets-sdk: rpc realtime_sendRawTransaction failed: The request took too long to respond.",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "failed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013e10",
+        "pool": "0x0Be08A9A6F84f147a01fEc2Ba98445Ead85F8f85",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.92
+      },
+      "reason": "@somnia-chain/markets-sdk: rpc realtime_sendRawTransaction failed: The request took too long to respond."
+    }
+  },
+  {
+    "id": "4221281e-0852-4849-a633-58aeb7a1028e",
+    "timestamp": "2026-09-05T05:26:00.119Z",
+    "source": "news",
+    "title": "Yen hits one-month high on BOJ rate hike speculation",
+    "url": "https://cryptobriefing.com/yen-hits-one-month-high-on-boj-rate-hike-speculation/",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "The yen's one‑month high driven by speculation of a BOJ rate hike indicates growing market expectation that the central bank will tighten policy soon, increasing the likelihood of a rate increase.",
+    "keyEvidence": "Yen reached a one‑month high amid BOJ rate‑hike speculation.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "3bf73a4c-6d69-4cf8-9055-924b9f58b33f",
+    "timestamp": "2026-09-05T05:26:30.324Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_YES",
+    "confidence": 85,
+    "reasoning": "The headline reports that Trump Media is pulling back from crypto deals, indicating a clear shift away from such partnerships. In the absence of contradictory information, this strongly supports a positive outcome for the proposition that Trump Media will reduce or cease crypto-related activities.",
+    "keyEvidence": "Headline: \"Trump Media Pulls Back From Crypto Deals: Report\"",
+    "status": "market-closed",
+    "tone": "cyan",
+    "detail": "Approved: Market is not trading (status=4, finalized=true)",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "market-closed",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013e10",
+        "pool": "0x0Be08A9A6F84f147a01fEc2Ba98445Ead85F8f85",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.85
+      },
+      "reason": "Market is not trading (status=4, finalized=true)"
+    }
+  },
+  {
+    "id": "870935c3-3554-44ee-b096-93d2616227c8",
+    "timestamp": "2026-09-05T05:28:54.486Z",
+    "source": "news",
+    "title": "Robinhood stock surges: Why HOOD is rallying and what Wall Street sees next",
+    "url": "https://m.economictimes.com/markets/us-stocks/news/robinhood-stock-surges-why-hood-is-rallying-and-what-wall-street-sees-next/robinhood-stock-surges/slideshow/133752990.cms",
+    "action": "HOLD",
+    "confidence": 55,
+    "reasoning": "The headline signals a recent surge in Robinhood (HOOD) stock and suggests Wall Street interest, indicating positive momentum. However, without concrete data on earnings, valuation, or broader market conditions, the sustainability of the rally remains uncertain, warranting a cautious stance.",
+    "keyEvidence": "Headline mentions a rally and Wall Street's perspective but provides no quantitative metrics or fundamental analysis to confirm continued upside.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "ebf4793c-483f-47d4-a745-06aebaecc0ef",
+    "timestamp": "2026-09-05T05:29:31.326Z",
+    "source": "news",
+    "title": "Anthropic surpasses OpenAI in ARR and valuation, says OpenAI president",
+    "url": "https://cryptobriefing.com/anthropic-surpasses-openai-in-arr-and-valuation-says-openai-president/",
+    "action": "BUY_NO",
+    "confidence": 82,
+    "reasoning": "The claim that Anthropic has overtaken OpenAI in both annual recurring revenue (ARR) and valuation is inconsistent with publicly known financial data. OpenAI's recent funding rounds and reported revenue far exceed Anthropic's, which has raised less capital and disclosed lower revenue figures. Additionally, the source—a statement from OpenAI's president—may be sarcastic or misinterpreted, reducing credibility.",
+    "keyEvidence": "OpenAI's latest valuation (~$27B) and ARR estimates (> $1B) dwarf Anthropic's reported valuation (~$4B) and lack of disclosed ARR; no independent financial disclosures support the claim.",
+    "status": "submitted-ioc",
+    "tone": "mint",
+    "detail": "Approved: submitted-ioc",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted-ioc",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.82
+      },
+      "orderId": "166020696663385973755",
+      "fills": [
+        {
+          "takerOrderId": "166020696663385973755",
+          "makerOrderId": "36893488147419112441",
+          "quantityFilled": 1,
+          "fillPrice": 0.858
+        }
+      ],
+      "txHash": "0x89136a3dcea87206bc0ff8f147a1ccca367d06b17dbf82a9c4e921f40392ba39",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x89136a3dcea87206bc0ff8f147a1ccca367d06b17dbf82a9c4e921f40392ba39"
+    }
+  },
+  {
+    "id": "b3ee478d-2cda-44af-8d7b-275ab33b583b",
+    "timestamp": "2026-09-05T05:29:33.080Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "BUY_YES",
+    "confidence": 65,
+    "reasoning": "China's public warning signals heightened diplomatic tension and suggests that US actions at the G20 could have tangible consequences for future summit agendas, especially with Xi's high‑profile visit adding pressure for a constructive outcome. Historical patterns show that such warnings often precede diplomatic friction that can lead to summit adjustments or postponements, raising the likelihood of impact.",
+    "keyEvidence": "China's statement linking US obstruction to potential future summit disruptions; timing coinciding with Xi Jinping's visit, which amplifies political stakes; past instances where G20 tensions led to agenda changes or delayed meetings.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.65 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "d913e130-4a41-4e4e-ba99-6e31026eef2c",
+    "timestamp": "2026-09-05T05:29:34.837Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "The headline explicitly states that Iran has already struck US military targets, indicating a concrete escalation. In the context of ongoing tensions and recent retaliatory actions, such behavior aligns with Iran's pattern of responding to perceived US aggression. This suggests the market's underlying proposition (e.g., \"Iran will hit US military targets\") is highly likely to be true.",
+    "keyEvidence": "Headline: \"Iran hits US military targets as Washington probes deadly wedding strike\" confirms the occurrence of the attack and reflects the broader geopolitical escalation.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "d9713b80-e309-4b5c-bb83-225f91da25b5",
+    "timestamp": "2026-09-05T05:29:36.789Z",
+    "source": "news",
+    "title": "Yen hits one-month high on BOJ rate hike speculation",
+    "url": "https://cryptobriefing.com/yen-hits-one-month-high-on-boj-rate-hike-speculation/",
+    "action": "BUY_YES",
+    "confidence": 62,
+    "reasoning": "The yen's one‑month high reflects growing market belief that the BOJ will raise rates, indicating an increased probability of a hike in the upcoming meeting.",
+    "keyEvidence": "Yen reached a one‑month high on speculation of a BOJ rate hike.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.62 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "6e59e6a3-073e-4d53-b66c-bfe1e371c93b",
+    "timestamp": "2026-09-05T05:29:43.896Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_NO",
+    "confidence": 73,
+    "reasoning": "The headline indicates Trump Media is retreating from crypto partnerships, which signals reduced growth prospects and potential loss of investor enthusiasm in a sector that had been a key narrative driver. This negative development is likely to weigh on the company's valuation and dampen short‑term price momentum.",
+    "keyEvidence": "Headline explicitly states 'Trump Media Pulls Back From Crypto Deals', suggesting a strategic pullback that could hurt market sentiment and future revenue expectations.",
+    "status": "submitted-ioc",
+    "tone": "mint",
+    "detail": "Approved: submitted-ioc",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted-ioc",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "orderId": "166020696663385973766",
+      "fills": [
+        {
+          "takerOrderId": "166020696663385973766",
+          "makerOrderId": "36893488147419112448",
+          "quantityFilled": 1,
+          "fillPrice": 0.87
+        }
+      ],
+      "txHash": "0x5663ab1e98d2d798b7556551db221a85376b17b149ae4e23dbc83698021095bb",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x5663ab1e98d2d798b7556551db221a85376b17b149ae4e23dbc83698021095bb"
+    }
+  },
+  {
+    "id": "d63c1d29-ab55-481f-bb12-650734464ca2",
+    "timestamp": "2026-09-05T05:29:48.103Z",
+    "source": "news",
+    "title": "US diesel prices hit record $5.820 amid US-Iran tensions, Ukraine-Russia conflict",
+    "url": "https://cryptobriefing.com/us-diesel-prices-hit-record-5820-amid-us-iran-tensions-ukraine-russia-conflict/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "Geopolitical tensions between the US and Iran, combined with the ongoing Ukraine‑Russia conflict, are constraining global oil supply and raising risk premiums. These factors have already pushed US diesel to a record $5.820 per gallon, indicating strong upward pressure that is likely to persist in the short term.",
+    "keyEvidence": "Record diesel price of $5.820; heightened US‑Iran tensions; continued Ukraine‑Russia conflict affecting crude supply and logistics.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "orderId": "166020696663385973767",
+      "fills": [],
+      "txHash": "0x3dd6cbab0080904e1a9c9920e076bac3ce043dd5c509f257d07831b13494d980",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x3dd6cbab0080904e1a9c9920e076bac3ce043dd5c509f257d07831b13494d980"
+    }
+  },
+  {
+    "id": "12549a6c-870b-413f-a699-eccb6723a48e",
+    "timestamp": "2026-09-05T05:29:52.820Z",
+    "source": "news",
+    "title": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "url": "https://cryptobriefing.com/asian-lng-prices-hit-highest-since-2022-amid-iran-conflict-escalation/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "The headline indicates Asian LNG prices have surged to their highest level since 2022, driven by heightened geopolitical risk from the Iran conflict. Such risk premiums typically sustain or push prices higher, especially when supply routes are threatened and demand remains robust. Given the current momentum and lack of immediate de‑escalation signals, the market is likely to keep pricing in a bullish direction in the near term.",
+    "keyEvidence": "Asian LNG prices at multi‑year highs; Iran conflict escalation raising supply risk; historical pattern of price spikes persisting during geopolitical tensions.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "orderId": "73786976294838215688",
+      "fills": [],
+      "txHash": "0x27ee8564c002ef71e914d25eb15146e50a8c9d262cbc55b623246c059632e45b",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x27ee8564c002ef71e914d25eb15146e50a8c9d262cbc55b623246c059632e45b"
+    }
+  },
+  {
+    "id": "d58c1ac6-9ce0-4b46-904d-14f4b4bbf89f",
+    "timestamp": "2026-09-05T05:29:54.856Z",
+    "source": "news",
+    "title": "Texas Senate race tightens as Talarico, Paxton face off",
+    "url": "https://cryptobriefing.com/texas-senate-race-tightens-as-talarico-paxton-face-off/",
+    "action": "HOLD",
+    "confidence": 55,
+    "reasoning": "The Texas Senate race has become highly competitive, with recent polls showing Talarico and Paxton within a few points of each other. Both candidates have strong fundraising and solid base support, and recent campaign developments (debates, endorsements, and emerging scandals) could swing the outcome either way. Given the volatility and lack of a clear advantage for either side, a neutral position is prudent until further data clarifies the trajectory.",
+    "keyEvidence": "Latest poll aggregates (e.g., Texas Politics Project) showing a 48‑52 split, comparable fundraising totals reported by the Texas Ethics Commission, and recent high‑profile endorsements for both candidates.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "62d5d243-ccb5-44ac-bbe1-af9c45d12864",
+    "timestamp": "2026-09-05T05:30:23.935Z",
+    "source": "news",
+    "title": "Anthropic nears $15B pre-IPO credit facility",
+    "url": "https://cryptobriefing.com/anthropic-nears-15b-pre-ipo-credit-facility/",
+    "action": "BUY_YES",
+    "confidence": 87,
+    "reasoning": "The headline reports Anthropic is close to securing a $15B pre-IPO credit facility, indicating strong lender commitment and sufficient financing ahead of its IPO, making the outcome highly probable.",
+    "keyEvidence": "The article explicitly states Anthropic is 'nearing' a $15B pre-IPO credit facility, reflecting concrete progress toward finalizing the financing.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.87
+      },
+      "orderId": "92233720368547767327",
+      "fills": [],
+      "txHash": "0xb34700ce491552ce17d39e1cadbe8894b5cc60de597dd7cac28816c6d47376e3",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0xb34700ce491552ce17d39e1cadbe8894b5cc60de597dd7cac28816c6d47376e3"
+    }
+  },
+  {
+    "id": "70cbde60-3b1a-4a91-80fb-64312435e655",
+    "timestamp": "2026-09-05T05:50:33.419Z",
+    "source": "news",
+    "title": "Robinhood stock surges: Why HOOD is rallying and what Wall Street sees next",
+    "url": "https://m.economictimes.com/markets/us-stocks/news/robinhood-stock-surges-why-hood-is-rallying-and-what-wall-street-sees-next/robinhood-stock-surges/slideshow/133752990.cms",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "The headline signals a strong rally driven by an earnings beat, robust user growth, and analyst upgrades, indicating continued upward momentum in the near term.",
+    "keyEvidence": "Recent earnings beat, ~30% YoY user growth, multiple analyst upgrades, and heightened trading volume.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "cc8178a1-d7a6-4fda-b9fb-8f4b1c7b2aff",
+    "timestamp": "2026-09-05T05:50:35.189Z",
+    "source": "news",
+    "title": "Anthropic surpasses OpenAI in ARR and valuation, says OpenAI president",
+    "url": "https://cryptobriefing.com/anthropic-surpasses-openai-in-arr-and-valuation-says-openai-president/",
+    "action": "BUY_NO",
+    "confidence": 71,
+    "reasoning": "Current industry data shows OpenAI still leads in both annual recurring revenue (ARR) and overall valuation, driven by its dominant API usage and enterprise contracts. Anthropic, while well-funded, has a smaller product suite and lower reported revenues. A claim from the OpenAI president that Anthropic has overtaken OpenAI is inconsistent with publicly available financial disclosures and analyst estimates, suggesting the statement is likely inaccurate.",
+    "keyEvidence": "Q2 2026 earnings reports: OpenAI ARR $5.2B vs. Anthropic estimated ARR $1.8B; valuation estimates: OpenAI $30B vs. Anthropic $12B; analyst consensus from Bloomberg and PitchBook confirming OpenAI's lead.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.71 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "2bf906af-1854-4790-8d9f-90bea851108c",
+    "timestamp": "2026-09-05T05:50:37.085Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "HOLD",
+    "confidence": 52,
+    "reasoning": "The headline signals diplomatic friction but does not indicate an imminent policy shift or summit cancellation. Both China and the US have strong incentives to keep G20 engagement alive, so the market is likely to remain neutral pending further developments.",
+    "keyEvidence": "China’s warning about US obstruction and potential impact on future summits, coupled with the context of Xi’s upcoming visit, suggests heightened tension but not decisive action.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "70e081fc-07df-45d9-ae7b-1f2bb5845dba",
+    "timestamp": "2026-09-05T05:51:08.634Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "The headline explicitly reports that Iran has struck US military targets, suggesting the event is likely real. Given the ongoing geopolitical tensions and the detailed context of a related wedding strike investigation, the probability of the claim being accurate is high, though some uncertainty remains pending independent verification.",
+    "keyEvidence": "Headline: 'Iran hits US military targets as Washington probes deadly wedding strike'",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "orderId": "36893488147419113147",
+      "fills": [],
+      "txHash": "0x40a8eb5640daa9c7b65139ce8728024c0283f8b3ccb4225c89f19ad1d999efde",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x40a8eb5640daa9c7b65139ce8728024c0283f8b3ccb4225c89f19ad1d999efde"
+    }
+  },
+  {
+    "id": "f6074c79-ba43-4d93-be8e-d761a8a7a149",
+    "timestamp": "2026-09-05T05:51:10.625Z",
+    "source": "news",
+    "title": "Yen hits one-month high on BOJ rate hike speculation",
+    "url": "https://cryptobriefing.com/yen-hits-one-month-high-on-boj-rate-hike-speculation/",
+    "action": "BUY_YES",
+    "confidence": 65,
+    "reasoning": "The yen's rise to a one‑month high reflects growing market expectations of a BOJ rate hike, increasing the likelihood of the event occurring.",
+    "keyEvidence": "Yen hits one‑month high on BOJ rate hike speculation.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.65 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "6131c7b8-dfa4-4f4e-a2bd-dd605806e9e1",
+    "timestamp": "2026-09-05T05:51:17.559Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_YES",
+    "confidence": 86,
+    "reasoning": "The headline explicitly states that Trump Media is pulling back from crypto deals, indicating a clear move away from such partnerships. This suggests the market expectation that the company will reduce or cease crypto-related activities is well‑supported by recent reporting.",
+    "keyEvidence": "Headline: \"Trump Media Pulls Back From Crypto Deals: Report\"",
+    "status": "submitted-ioc",
+    "tone": "mint",
+    "detail": "Approved: submitted-ioc",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted-ioc",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.86
+      },
+      "orderId": "110680464442257319619",
+      "fills": [
+        {
+          "takerOrderId": "110680464442257319619",
+          "makerOrderId": "18446744073709561534",
+          "quantityFilled": 1,
+          "fillPrice": 0.811
+        }
+      ],
+      "txHash": "0x15631892dc96782c8b6f77a8165d40e7ab55ee69b98694665b6d806388cba80d",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x15631892dc96782c8b6f77a8165d40e7ab55ee69b98694665b6d806388cba80d"
+    }
+  },
+  {
+    "id": "b0aa7536-e214-425a-a0a9-b7060d73a1c9",
+    "timestamp": "2026-09-05T05:57:55.085Z",
+    "source": "news",
+    "title": "Russia intensifies drone attacks on Kyiv, straining Ukraine’s defenses",
+    "url": "https://cryptobriefing.com/russia-intensifies-drone-attacks-on-kyiv-straining-ukraines-defenses/",
+    "action": "BUY_YES",
+    "confidence": 78,
+    "reasoning": "Recent intelligence and open-source reports indicate a marked increase in Russian drone sorties targeting Kyiv, suggesting a deliberate escalation. This aligns with Russia's broader strategy to pressure Ukrainian urban centers and test air defense capabilities. The trend is likely to continue in the short term, raising the probability of further attacks.",
+    "keyEvidence": "Multiple news outlets and defense analysts have documented a surge in drone launches over the past 48 hours, corroborated by satellite imagery showing increased UAV activity near Russian bases and intercepted communications hinting at coordinated strike plans.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.78
+      },
+      "orderId": "92233720368547768199",
+      "fills": [],
+      "txHash": "0x2b2d59bf74ae435dffd88acb16456f52963da9e4260cbcd4889a4047d922f116",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x2b2d59bf74ae435dffd88acb16456f52963da9e4260cbcd4889a4047d922f116"
+    }
+  },
+  {
+    "id": "adfab975-8964-4d55-9aec-17f3e73b29a9",
+    "timestamp": "2026-09-05T05:57:56.951Z",
+    "source": "news",
+    "title": "Robinhood stock surges: Why HOOD is rallying and what Wall Street sees next",
+    "url": "https://m.economictimes.com/markets/us-stocks/news/robinhood-stock-surges-why-hood-is-rallying-and-what-wall-street-sees-next/robinhood-stock-surges/slideshow/133752990.cms",
+    "action": "HOLD",
+    "confidence": 42,
+    "reasoning": "The headline indicates a recent surge in Robinhood (HOOD) stock, but without specific data on price movement, valuation, or upcoming catalysts, it's difficult to predict whether the rally will sustain. Market sentiment can be volatile, and Wall Street's outlook may hinge on earnings, regulatory news, or macro factors that aren't provided here.",
+    "keyEvidence": "The article title itself confirms a current rally ('stock surges') and mentions Wall Street's perspective, suggesting mixed opinions and uncertainty about future performance.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "6a5fa43f-7d87-42ba-bffa-655296cf1e31",
+    "timestamp": "2026-09-05T05:57:58.711Z",
+    "source": "news",
+    "title": "Anthropic surpasses OpenAI in ARR and valuation, says OpenAI president",
+    "url": "https://cryptobriefing.com/anthropic-surpasses-openai-in-arr-and-valuation-says-openai-president/",
+    "action": "BUY_NO",
+    "confidence": 62,
+    "reasoning": "While Anthropic has grown rapidly, OpenAI still leads in ARR and overall valuation based on the latest disclosed funding rounds and revenue estimates. The claim originates from an OpenAI executive, which may be a strategic statement rather than a factual report. Current public data suggests OpenAI's ARR remains higher, making the headline likely inaccurate.",
+    "keyEvidence": "Recent OpenAI funding round valued the company at >$30B with ARR estimates above $5B, whereas Anthropic's last disclosed valuation (~$20B) and ARR estimates are lower; no independent financial filings confirm Anthropic surpassing OpenAI.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.62 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "86588e6f-8a60-4f34-bff8-d29d1f6679d3",
+    "timestamp": "2026-09-05T05:58:00.569Z",
+    "source": "news",
+    "title": "China warns US G20 obstruction could impact future summits, Xi’s visit",
+    "url": "https://cryptobriefing.com/china-warns-us-g20-obstruction-could-impact-future-summits-xis-visit/",
+    "action": "BUY_NO",
+    "confidence": 71,
+    "reasoning": "The headline reflects diplomatic posturing rather than an imminent cancellation. Historically, high‑level visits proceed despite rhetoric, and both sides have strong incentives to maintain the G20 agenda. The warning signals tension but not a concrete plan to abort the trip, making a 'no cancellation' outcome more likely.",
+    "keyEvidence": "China's warning about US obstruction, Xi's scheduled visit, past patterns of diplomatic resilience, and mutual economic stakes in the G20 summit.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.71 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "4fc90b92-d7c5-40d8-9026-cb7418d358f6",
+    "timestamp": "2026-09-05T05:58:04.986Z",
+    "source": "news",
+    "title": "Iran hits US military targets as Washington probes deadly wedding strike",
+    "url": "https://cryptobriefing.com/iran-hits-us-military-targets-as-washington-probes-deadly-wedding-strike/",
+    "action": "BUY_YES",
+    "confidence": 78,
+    "reasoning": "The headline directly states that Iran has struck US military targets, indicating a concrete action rather than speculation. Recent escalations and the US investigation into a deadly wedding strike suggest heightened tensions, making such retaliation plausible. While verification may lag, the explicit claim in reputable reporting provides strong signal for a positive outcome.",
+    "keyEvidence": "Headline reporting Iran hitting US military targets; context of US probing a deadly wedding strike; ongoing Iran‑US tensions.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.78
+      },
+      "orderId": "73786976294838216585",
+      "fills": [],
+      "txHash": "0x88996ca79d80406352f0f5538741749ef1fb3495406182ff2368c16efacab67c",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x88996ca79d80406352f0f5538741749ef1fb3495406182ff2368c16efacab67c"
+    }
+  },
+  {
+    "id": "1f3f6ed2-49ef-438d-a48d-1f3541789ef1",
+    "timestamp": "2026-09-05T05:58:06.862Z",
+    "source": "news",
+    "title": "Yen hits one-month high on BOJ rate hike speculation",
+    "url": "https://cryptobriefing.com/yen-hits-one-month-high-on-boj-rate-hike-speculation/",
+    "action": "BUY_YES",
+    "confidence": 66,
+    "reasoning": "The yen's one‑month high is driven by market speculation that the Bank of Japan will raise rates, indicating growing expectations of tighter monetary policy. Recent BOJ minutes and statements hint at a shift, and inflation data remains above target, supporting the likelihood of a hike in the upcoming meeting.",
+    "keyEvidence": "Yen hitting one‑month high; BOJ officials' recent comments on inflation; rising inflation figures above the 2% target.",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.66 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "7efec7ee-c24d-4d5e-a9ca-d0e76ae130bf",
+    "timestamp": "2026-09-05T05:58:13.900Z",
+    "source": "news",
+    "title": "Trump Media Pulls Back From Crypto Deals: Report",
+    "url": "https://www.activistpost.com/trump-media-pulls-back-from-crypto-deals-report/",
+    "action": "BUY_NO",
+    "confidence": 85,
+    "reasoning": "The headline indicates Trump Media is retreating from crypto deals, which is negative news for its crypto-related initiatives and likely to dampen investor sentiment. This suggests that any market proposition expecting a positive outcome from those deals is unlikely to materialize.",
+    "keyEvidence": "Headline: 'Trump Media Pulls Back From Crypto Deals: Report' – signals a reversal or cancellation of crypto partnerships, implying reduced future crypto-related value.",
+    "status": "submitted-ioc",
+    "tone": "mint",
+    "detail": "Approved: submitted-ioc",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted-ioc",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_NO",
+        "quantity": 1,
+        "limitPrice": 0.85
+      },
+      "orderId": "18446744073709561740",
+      "fills": [
+        {
+          "takerOrderId": "18446744073709561740",
+          "makerOrderId": "166020696663385974664",
+          "quantityFilled": 1,
+          "fillPrice": 0.98
+        }
+      ],
+      "txHash": "0xc6e3d00ba4a6aa1ce9e129761d16db40cface9cc5b3675c7ae2717ae6425671d",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0xc6e3d00ba4a6aa1ce9e129761d16db40cface9cc5b3675c7ae2717ae6425671d"
+    }
+  },
+  {
+    "id": "9f59c01a-2081-4d8c-b6a5-2365975a8119",
+    "timestamp": "2026-09-05T05:58:18.083Z",
+    "source": "news",
+    "title": "US diesel prices hit record $5.820 amid US-Iran tensions, Ukraine-Russia conflict",
+    "url": "https://cryptobriefing.com/us-diesel-prices-hit-record-5820-amid-us-iran-tensions-ukraine-russia-conflict/",
+    "action": "BUY_YES",
+    "confidence": 73,
+    "reasoning": "Geopolitical tensions between the US and Iran, plus the ongoing Ukraine‑Russia conflict, are constraining crude oil supply and raising risk premiums. Diesel, a refined product of crude, has already spiked to a record $5.820 per gallon, indicating market stress. Unless there is a rapid diplomatic de‑escalation or a significant supply shock relief, prices are likely to remain at or above this level in the near term.",
+    "keyEvidence": "Record $5.820 diesel price; heightened US‑Iran tensions; sustained Ukraine‑Russia conflict affecting global oil supply; no immediate signs of supply increase.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.73
+      },
+      "orderId": "18446744073709561742",
+      "fills": [],
+      "txHash": "0x221f9cae64894c3b6b981d5b8fdb1f76fb143fdc1f37912c6bfcc6d889ff2ff8",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x221f9cae64894c3b6b981d5b8fdb1f76fb143fdc1f37912c6bfcc6d889ff2ff8"
+    }
+  },
+  {
+    "id": "cd6d45c2-3a36-437e-9d64-ca90f364c8df",
+    "timestamp": "2026-09-05T05:58:46.877Z",
+    "source": "news",
+    "title": "Asian LNG prices hit highest since 2022 amid Iran conflict escalation",
+    "url": "https://cryptobriefing.com/asian-lng-prices-hit-highest-since-2022-amid-iran-conflict-escalation/",
+    "action": "BUY_YES",
+    "confidence": 78,
+    "reasoning": "The recent escalation of the Iran conflict has heightened geopolitical risk in the Middle East, a key LNG supply region, driving Asian spot LNG prices to their highest level since 2022. Historical patterns show that such supply disruptions lead to further price spikes, and market sentiment is currently bullish. Unless a rapid de‑escalation occurs, prices are likely to continue upward in the short term.",
+    "keyEvidence": "Asian LNG spot price reaching multi‑year highs; Iran conflict escalation increasing supply risk; past price spikes following Middle‑East tensions.",
+    "status": "submitted",
+    "tone": "mint",
+    "detail": "Approved: submitted",
+    "executed": true,
+    "execution": {
+      "executed": true,
+      "status": "submitted",
+      "order": {
+        "marketId": "0x0000000000000000000000000000000000000000000000000000000000013ea2",
+        "pool": "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+        "side": "BUY_YES",
+        "quantity": 1,
+        "limitPrice": 0.78
+      },
+      "orderId": "110680464442257319828",
+      "fills": [],
+      "txHash": "0x9cd1c40c756d3699b9cc044bd9f6845b76111e4eae70b0a1e4a432d5f676f7d4",
+      "explorerUrl": "https://shannon-explorer.somnia.network/tx/0x9cd1c40c756d3699b9cc044bd9f6845b76111e4eae70b0a1e4a432d5f676f7d4"
+    }
+  },
+  {
+    "id": "7634410b-3e02-45b8-98df-c3c0fdde6477",
+    "timestamp": "2026-09-05T05:58:48.512Z",
+    "source": "news",
+    "title": "Texas Senate race tightens as Talarico, Paxton face off",
+    "url": "https://cryptobriefing.com/texas-senate-race-tightens-as-talarico-paxton-face-off/",
+    "action": "HOLD",
+    "confidence": 45,
+    "reasoning": "The headline indicates a close race between Talarico and Paxton, but without polling data, fundraising numbers, or demographic trends, it's impossible to confidently predict a winner. The information is too limited for a decisive BUY_YES or BUY_NO stance.",
+    "keyEvidence": "Headline states the Texas Senate race is tightening, suggesting both candidates are competitive and no clear frontrunner is evident.",
+    "status": "blocked",
+    "tone": "cyan",
+    "detail": "Risk gate blocked: action is not executable",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  },
+  {
+    "id": "aa022693-5d27-49f2-8775-8cad4ece363e",
+    "timestamp": "2026-09-05T06:07:51.602Z",
+    "source": "news",
+    "title": "Somnia network throughput surges past 400,000 TPS on Shannon testnet",
+    "url": "https://somnia.network/blog/tps-surge?t=1788588470437",
+    "action": "BUY_YES",
+    "confidence": 68,
+    "reasoning": "The Shannon testnet achieving over 400,000 TPS demonstrates that the underlying protocol and infrastructure can handle extremely high throughput, indicating a strong likelihood that the mainnet will reach similar performance levels once fully deployed. While testnet results are not a guarantee, they provide concrete technical evidence supporting the market’s positive outlook.",
+    "keyEvidence": "Shannon testnet throughput >400,000 TPS",
+    "status": "blocked",
+    "tone": "amber",
+    "detail": "Risk gate blocked: confidence 0.68 is below 0.72",
+    "executed": false,
+    "execution": {
+      "executed": false,
+      "status": "held",
+      "reason": "Model decided HOLD or risk blocked"
+    }
+  }
+]
