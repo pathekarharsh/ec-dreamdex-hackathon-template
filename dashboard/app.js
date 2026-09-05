@@ -7,6 +7,7 @@ const state = {
 };
 
 const $ = (selector) => document.querySelector(selector);
+const escapeHtml = (value) => String(value ?? '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
 const status = (text, tone = 'mint') => {
   const node = $('.status-chip b');
   node.textContent = text;
@@ -16,7 +17,7 @@ const status = (text, tone = 'mint') => {
 function renderSignal(signal) {
   const room = $('.signal');
   if (!room) return;
-  room.innerHTML = `<div class="signal-mark">${signal.action === 'HOLD' ? 'H' : 'N'}</div><div><div class="signal-title">${signal.title}</div><p>${signal.detail}</p><div class="tags"><span>${signal.action}</span><span>confidence ${signal.confidence}%</span><span class="${signal.approved ? 'approved' : 'blocked'}">risk gate ${signal.approved ? 'approved' : 'blocked'}</span></div></div><time>now</time>`;
+  room.innerHTML = `<div class="signal-mark">${signal.action === 'HOLD' ? 'H' : 'N'}</div><div><div class="signal-title">${escapeHtml(signal.title)}</div><p>${escapeHtml(signal.detail)}</p><div class="tags"><span>${escapeHtml(signal.action)}</span><span>confidence ${escapeHtml(signal.confidence)}%</span><span class="${signal.approved ? 'approved' : 'blocked'}">risk gate ${signal.approved ? 'approved' : 'blocked'}</span></div></div><time>now</time>`;
   $('.signal-room .live')?.replaceChildren(document.createTextNode(signal.approved ? 'APPROVED' : 'BLOCKED'));
 }
 
@@ -74,3 +75,37 @@ document.querySelectorAll('[data-demo]').forEach((button) => {
   button.addEventListener('click', () => ({ headline: injectHeadline, breaker: tripBreaker, resolve: resolveMarket, reset: resetDemo }[button.dataset.demo])());
 });
 renderActivity();
+
+function applyBackendSnapshot(records) {
+  if (!Array.isArray(records) || records.length === 0) return;
+  state.activity = records.slice(0, 4).map((record) => ({
+    title: record.title || record.type || 'Sentinel event',
+    detail: record.detail || record.reason || record.status || 'Backend event received',
+    tone: record.tone || (record.status === 'blocked' ? 'amber' : 'cyan'),
+    time: record.timestamp ? new Date(record.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'now',
+  }));
+  renderActivity();
+  $('.last-sync').textContent = 'Last sync — live backend';
+}
+
+async function connectBackend() {
+  try {
+    const response = await fetch('/api/status', { headers: { Accept: 'application/json' } });
+    if (!response.ok) throw new Error(`status ${response.status}`);
+    const snapshot = await response.json();
+    applyBackendSnapshot(snapshot.records);
+    if (snapshot.marketConfigured) $('.pulse-card small').textContent = snapshot.dryRun ? 'Backend connected · dry run' : 'Backend connected · live execution gated';
+    status(snapshot.dryRun ? 'DRY RUN' : 'LIVE GATED', snapshot.dryRun ? 'mint' : 'amber');
+    if (window.EventSource) {
+      const stream = new EventSource('/api/events');
+      stream.addEventListener('snapshot', (event) => {
+        try { applyBackendSnapshot(JSON.parse(event.data)); } catch { stream.close(); }
+      });
+      stream.onerror = () => stream.close();
+    }
+  } catch {
+    $('.last-sync').textContent = 'Last sync — demo mode';
+  }
+}
+
+connectBackend();
