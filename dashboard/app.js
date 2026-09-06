@@ -2,9 +2,11 @@ const state = {
   status: null,
   records: [],
   trades: [],
+  decisions: [],
   performance: null,
   strategies: [],
   isRunning: false,
+  ledgerTab: "trades", // "trades" | "decisions"
 };
 
 const $ = (selector) => document.querySelector(selector);
@@ -26,6 +28,7 @@ function renderUI(data) {
   state.status = data;
   state.records = data.records || [];
   state.trades = data.trades || [];
+  state.decisions = data.decisions || [];
   state.performance = data.performance || {};
   state.strategies = data.strategies || [];
 
@@ -42,7 +45,7 @@ function renderUI(data) {
     walletChip.innerHTML = `<span class="wallet-dot"></span><b>${shortAddr(data.wallet)}</b><small>${data.sttBalance || "0"} STT · ${data.usdcBalance || "0"} tUSDC</small>`;
   }
 
-  // 2. Pulse Card (Agent Radar)
+  // 2. Pulse Card
   const pulseStrong = $(".pulse-card strong");
   const pulseSmall = $(".pulse-card small");
   if (pulseStrong && pulseSmall) {
@@ -53,7 +56,7 @@ function renderUI(data) {
     pulseSmall.textContent = `Targeting ${asset} 60m Window`;
   }
 
-  // 3. Core Telemetry Row
+  // 3. Telemetry Row
   const metricState = $("#metric-state strong");
   const metricStateSub = $("#metric-state span");
   if (metricState) {
@@ -65,7 +68,11 @@ function renderUI(data) {
   const metricRiskSub = $("#metric-risk span");
   if (metricRisk) {
     metricRisk.textContent = `${Math.round((data.risk?.minConfidence || 0.72) * 100)}%`;
-    if (metricRiskSub) metricRiskSub.textContent = `Min confidence · Max ${data.risk?.maxPositionSize || 10} contracts`;
+    if (metricRiskSub) {
+      const isTripped = data.risk?.tripped;
+      metricRiskSub.textContent = isTripped ? "⚠️ Circuit Breaker Tripped" : `Min confidence · Max ${data.risk?.maxPositionSize || 10} contracts`;
+      metricRiskSub.style.color = isTripped ? "#ff5252" : "";
+    }
   }
 
   const metricBalance = $("#metric-balance strong");
@@ -82,30 +89,31 @@ function renderUI(data) {
     if (metricMarketSub) metricMarketSub.textContent = data.market?.status || "Trading (Active)";
   }
 
-  // 4. MODULE 15: Performance Stat Cards
-  renderPerformanceMetrics(data.performance);
+  // 4. Performance Stat Cards
+  renderPerformanceMetrics(data.performance, data.risk);
 
-  // 5. MODULE 13 & 14: Trades & Settlement Ledger Table
-  renderTradesLedger(data.trades);
+  // 5. Trades & Decisions Ledger
+  renderTradesLedger();
 
-  // 6. MODULE 16: Strategy Leaderboard
+  // 6. Strategy Leaderboard
   renderStrategyLeaderboard(data.performance?.strategyBreakdown, data.strategies);
 
-  // 7. Signal Room (Groq AI)
+  // 7. Latest Signal (Groq AI)
   renderLatestSignal(data.records);
 
-  // 8. Activity Feed (On-Chain Stream)
+  // 8. Activity Stream
   renderActivityList(data.records);
 
-  // 9. Telemetry details
+  // 9. Details
   const dl = $("#protection-details");
   if (dl) {
     dl.innerHTML = `
       <div><dt>Somnia Wallet</dt><dd><a href="https://shannon-explorer.somnia.network/address/${data.wallet}" target="_blank" class="link">${shortAddr(data.wallet)} ↗</a></dd></div>
       <div><dt>Active Pool</dt><dd><a href="https://shannon-explorer.somnia.network/address/${data.market?.pool}" target="_blank" class="link">${shortAddr(data.market?.pool)} ↗</a></dd></div>
       <div><dt>AI Reasoning</dt><dd>${data.ai?.provider || "Groq"} (${data.ai?.model || "gpt-oss-120b"})</dd></div>
-      <div><dt>News Intelligence</dt><dd>${data.news?.provider || "NewsAPI.org"}</dd></div>
+      <div><dt>News Feed</dt><dd>${data.news?.provider || "NewsAPI.org"}</dd></div>
       <div><dt>Database Engine</dt><dd>SQLite (data/sentinel.db via node:sqlite)</dd></div>
+      <div><dt>Risk Circuit Breaker</dt><dd style="color:${data.risk?.tripped ? '#ff5252' : 'var(--mint)'}">${data.risk?.tripped ? 'TRIPPED (Click Reset)' : 'ACTIVE & NORMAL'}</dd></div>
       <div><dt>Execution Mode</dt><dd style="color:var(--mint)">LIVE ON-CHAIN (Somnia Shannon 50312)</dd></div>
     `;
   }
@@ -114,12 +122,12 @@ function renderUI(data) {
   if (lastSync) lastSync.textContent = `Last sync — ${new Date().toLocaleTimeString()}`;
 }
 
-function renderPerformanceMetrics(perf = {}) {
+function renderPerformanceMetrics(perf = {}, risk = {}) {
   const valWinrate = $("#val-winrate");
   const valWinsLosses = $("#val-wins-losses");
   if (valWinrate) valWinrate.textContent = `${perf.winRate || 0}%`;
   if (valWinsLosses) {
-    valWinsLosses.textContent = `${perf.wonCount || 0 + (perf.redeemedCount || 0)} Won · ${perf.lostCount || 0} Lost`;
+    valWinsLosses.textContent = `${(perf.wonCount || 0) + (perf.redeemedCount || 0)} Won · ${perf.lostCount || 0} Lost`;
   }
 
   const valPnl = $("#val-pnl");
@@ -147,24 +155,116 @@ function renderPerformanceMetrics(perf = {}) {
 
   const valRiskCap = $("#val-risk-cap");
   if (valRiskCap) {
-    valRiskCap.textContent = `$0.00 / $${perf.dailyLossCapUsd || 25}`;
+    valRiskCap.textContent = `$${risk.dailyLossUsd || 0} / $${risk.dailyLossCapUsd || 50}`;
   }
 
   const badgeTotal = $("#trades-total-badge");
   if (badgeTotal) {
-    badgeTotal.textContent = `${perf.totalTrades || 0} TRADES RECORDED`;
+    badgeTotal.textContent = `${perf.totalTrades || 0} TRADES`;
   }
 }
 
-function renderTradesLedger(trades = []) {
+function switchLedgerTab(tab) {
+  state.ledgerTab = tab;
+  const btnTrades = $("#tab-trades");
+  const btnDecisions = $("#tab-decisions");
+
+  if (btnTrades && btnDecisions) {
+    if (tab === "trades") {
+      btnTrades.className = "btn-action btn-primary";
+      btnDecisions.className = "btn-action";
+    } else {
+      btnTrades.className = "btn-action";
+      btnDecisions.className = "btn-action btn-primary";
+    }
+  }
+
+  renderTradesLedger();
+}
+
+window.switchLedgerTab = switchLedgerTab;
+
+function renderTradesLedger() {
   const tbody = $("#trades-ledger-body");
+  const thead = $(".ledger-table thead tr");
   if (!tbody) return;
 
+  if (state.ledgerTab === "decisions") {
+    // Show AI Decisions & Risk Log
+    if (thead) {
+      thead.innerHTML = `
+        <th>ID</th>
+        <th>TIME</th>
+        <th>STRATEGY</th>
+        <th>SIGNAL HEADLINE</th>
+        <th>ACTION</th>
+        <th>CONF</th>
+        <th>RISK STATUS</th>
+        <th>ON-CHAIN ORDER</th>
+      `;
+    }
+
+    const decs = state.decisions || [];
+    if (!decs.length) {
+      tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; color:var(--muted); padding:24px;">No AI trading decisions recorded yet. Click "Run Live Cycle Now"!</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = decs.map((d) => {
+      const isBuyYes = d.action === "BUY_YES";
+      const sideClass = isBuyYes ? "badge-side-yes" : "badge-side-no";
+      const isApproved = d.risk_status === "approved" || d.trade_id;
+      const riskBadge = isApproved
+        ? `<span class="badge badge-won">● APPROVED</span>`
+        : `<span class="badge badge-lost" title="${escapeHtml(d.risk_reason)}">▲ BLOCKED</span>`;
+      
+      const timeStr = d.timestamp ? new Date(d.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "—";
+      const stratName = (d.strategy_name || "NewsSentiment").replace("Strategy", "");
+
+      let orderCell = "—";
+      if (d.trade_id) {
+        orderCell = `<span style="color:var(--mint)">Order #${d.trade_id} (${d.trade_status})</span>`;
+      } else if (d.risk_reason) {
+        orderCell = `<small style="color:var(--muted); font-size:10px;">${escapeHtml(d.risk_reason)}</small>`;
+      }
+
+      return `
+        <tr>
+          <td><strong>#${d.id}</strong></td>
+          <td><small style="color:var(--muted)">${timeStr}</small></td>
+          <td><span style="font-size:11px">${stratName}</span></td>
+          <td><span style="color:#fff; font-size:11px;" title="${escapeHtml(d.title)}">${escapeHtml(d.title ? d.title.slice(0, 45) + '...' : 'Signal')}</span></td>
+          <td><span class="badge ${sideClass}">${d.action}</span></td>
+          <td>${Math.round((d.confidence || 0) * 100)}%</td>
+          <td>${riskBadge}</td>
+          <td>${orderCell}</td>
+        </tr>
+      `;
+    }).join("");
+    return;
+  }
+
+  // Show On-Chain Trades
+  if (thead) {
+    thead.innerHTML = `
+      <th>ID</th>
+      <th>PLACED</th>
+      <th>STRATEGY</th>
+      <th>SIDE</th>
+      <th>PRICE</th>
+      <th>QTY</th>
+      <th>STATUS</th>
+      <th>OUTCOME / PAYOUT</th>
+      <th>ACTION</th>
+    `;
+  }
+
+  const trades = state.trades || [];
   if (!trades.length) {
     tbody.innerHTML = `
       <tr>
         <td colspan="9" style="text-align:center; color:var(--muted); padding:28px;">
-          No trades placed yet. Click "Run Live Cycle Now" to execute trades!
+          No on-chain trades placed yet. Click "Run Live Cycle Now" to execute trades!
         </td>
       </tr>`;
     return;
@@ -400,8 +500,16 @@ async function runSentinelCycle() {
 
     if (result.success) {
       if (banner) {
-        banner.className = "feedback-banner success";
-        banner.innerHTML = `✅ <strong>Cycle Complete:</strong> Processed ${result.processed} signals. Executed <strong>${result.executedTrades}</strong> on-chain trade(s)!`;
+        if (result.executedTrades > 0) {
+          banner.className = "feedback-banner success";
+          banner.innerHTML = `✅ <strong>Cycle Complete:</strong> Processed ${result.processed} signals. Executed <strong>${result.executedTrades}</strong> live trade(s) on Somnia!`;
+        } else if (result.blockedReason) {
+          banner.className = "feedback-banner running";
+          banner.innerHTML = `🛡️ <strong>Risk Gate Intervened:</strong> Model evaluated signals, but order was blocked: <em>${escapeHtml(result.blockedReason)}</em>. (Click "Reset Risk Gates" if on cooldown).`;
+        } else {
+          banner.className = "feedback-banner running";
+          banner.textContent = `Cycle complete: Analyzed ${result.processed} headlines. Model decided HOLD (neutral market sentiment).`;
+        }
       }
     } else {
       if (banner) {
@@ -421,9 +529,36 @@ async function runSentinelCycle() {
       btn.disabled = false;
       btn.innerHTML = `⚡ Run Live Cycle Now`;
     }
-    setTimeout(() => {
-      if (banner && banner.className.includes("success")) banner.style.display = "none";
-    }, 10000);
+  }
+}
+
+async function resetRiskGates() {
+  const btn = $("#btn-reset-risk");
+  const banner = $("#action-feedback");
+  if (btn) {
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner"></span> Resetting...`;
+  }
+
+  try {
+    const res = await fetch("/api/risk-reset", { method: "POST" });
+    const result = await res.json();
+    if (banner) {
+      banner.style.display = "block";
+      banner.className = "feedback-banner success";
+      banner.innerHTML = `🛡️ <strong>Risk Gates Reset:</strong> Market cooldowns and circuit breaker cleared. Ready for new live trades!`;
+    }
+    await fetchStatus();
+  } catch (err) {
+    if (banner) {
+      banner.className = "feedback-banner error";
+      banner.textContent = `Reset failed: ${err.message}`;
+    }
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = `🛡️ Reset Risk Gates`;
+    }
   }
 }
 
@@ -545,6 +680,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const runBtn = $("#btn-run-sentinel");
   if (runBtn) runBtn.addEventListener("click", runSentinelCycle);
 
+  const resetRiskBtn = $("#btn-reset-risk");
+  if (resetRiskBtn) resetRiskBtn.addEventListener("click", resetRiskGates);
+
   const claimAllBtn = $("#btn-claim-all");
   if (claimAllBtn) claimAllBtn.addEventListener("click", claimAllWinnings);
 
@@ -553,6 +691,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const refreshBtn = $("#btn-refresh");
   if (refreshBtn) refreshBtn.addEventListener("click", fetchStatus);
+
+  const tabTrades = $("#tab-trades");
+  if (tabTrades) tabTrades.addEventListener("click", () => switchLedgerTab("trades"));
+
+  const tabDecisions = $("#tab-decisions");
+  if (tabDecisions) tabDecisions.addEventListener("click", () => switchLedgerTab("decisions"));
 
   fetchStatus();
 

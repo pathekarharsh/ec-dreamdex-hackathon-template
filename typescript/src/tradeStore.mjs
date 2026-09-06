@@ -249,6 +249,17 @@ export class TradeStore {
     `).all(limit);
   }
 
+  getRecentDecisions({ limit = 50 } = {}) {
+    return this.db.prepare(`
+      SELECT d.*, t.id as trade_id, t.status as trade_status, t.tx_hash, t.price as trade_price, t.payout_amount, t.redeem_tx_hash
+      FROM decisions d
+      LEFT JOIN trades t ON d.id = t.decision_id
+      WHERE d.action != 'HOLD'
+      ORDER BY d.id DESC
+      LIMIT ?
+    `).all(limit);
+  }
+
   getPerformanceMetrics(dailyLossCapUsd = 25) {
     const trades = this.db.prepare("SELECT * FROM trades").all();
 

@@ -9,9 +9,9 @@ import { resolutionWatcher } from "./resolutionWatcher.mjs";
 import { defaultRegistry } from "./strategies/index.mjs";
 
 const store = new SentinelStore();
-const risk = new RiskManager(sentinelConfig);
-const news = new NewsAdapter({ query: sentinelConfig.newsQuery });
-const executor = new ExecutionLayer({ dryRun: sentinelConfig.dryRun });
+export const risk = new RiskManager(sentinelConfig);
+export const news = new NewsAdapter({ query: sentinelConfig.newsQuery });
+export const executor = new ExecutionLayer({ dryRun: sentinelConfig.dryRun });
 const bridge = new ReactiveEventBridge({
   wsUrl: sentinelConfig.wsRpcUrl,
   marketId: sentinelConfig.marketId,

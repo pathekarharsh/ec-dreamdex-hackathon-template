@@ -180,6 +180,7 @@
       <div class="control-row">
         <button class="btn-action btn-primary" type="button" id="btn-run-sentinel">⚡ Run Live Cycle Now</button>
         <button class="btn-action btn-claim-all" type="button" id="btn-claim-all">💰 Claim All Won Payouts</button>
+        <button class="btn-action" type="button" id="btn-reset-risk">🛡️ Reset Risk Gates</button>
         <button class="btn-action" type="button" id="btn-faucet">💧 Claim 100 tUSDC Faucet</button>
         <button class="btn-action" type="button" id="btn-refresh">🔄 Refresh Balances</button>
         <a class="btn-action" href="https://shannon-explorer.somnia.network/address/0xb6C0D3a50B5Cd2eAf531eb3fEC9dFb68249ffDAf" target="_blank" rel="noopener" style="text-decoration:none">🧭 Wallet on Explorer ↗</a>
@@ -233,7 +234,11 @@
             <p class="eyebrow">MODULE 13 & 14 / PERSISTENT SQLITE STORE</p>
             <h3>Trades History & Resolution Ledger</h3>
           </div>
-          <span class="live" id="trades-total-badge">16 TRADES RECORDED</span>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <button class="btn-action btn-primary" type="button" id="tab-trades" style="padding:6px 10px; font-size:11px;">On-Chain Trades</button>
+            <button class="btn-action" type="button" id="tab-decisions" style="padding:6px 10px; font-size:11px;">AI Signals & Risk Verdicts</button>
+            <span class="live" id="trades-total-badge">TRADES RECORDED</span>
+          </div>
         </div>
         <div class="ledger-container">
           <table class="ledger-table">

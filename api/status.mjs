@@ -5,11 +5,12 @@ import { resolveActiveMarket } from "../typescript/src/market.mjs";
 import { tradeStore } from "../typescript/src/tradeStore.mjs";
 import { defaultRegistry } from "../typescript/src/strategies/index.mjs";
 import { resolutionWatcher } from "../typescript/src/resolutionWatcher.mjs";
+import { risk } from "../typescript/src/agent.mjs";
 
 const logPath = resolve(process.cwd(), "data/sentinel-log.json");
 const erc20Abi = [{ constant: true, inputs: [{ name: "_owner", type: "address" }], name: "balanceOf", outputs: [{ name: "balance", type: "uint256" }], type: "function" }];
 
-let cachedBalances = { stt: "49.95", usdc: "196.50", timestamp: 0 };
+let cachedBalances = { stt: "49.72", usdc: "194.63", timestamp: 0 };
 let lastResolutionCheck = 0;
 
 async function readRecords() {
@@ -42,6 +43,37 @@ async function getBalances() {
   return cachedBalances;
 }
 
+let cachedMarketInfo = {
+  marketId: process.env.MARKET_ID || "0x0000000000000000000000000000000000000000000000000000000000015405",
+  pool: process.env.MARKET_POOL || "0x246a65643ad8b6C6Dbd0b017A259DA07681242FD",
+  asset: "BTC",
+  status: "Trading (Active)",
+  finalized: false,
+  timestamp: 0,
+};
+
+async function getMarketInfo() {
+  const now = Date.now();
+  if (now - cachedMarketInfo.timestamp < 30000) {
+    return cachedMarketInfo;
+  }
+  try {
+    const active = await resolveActiveMarket();
+    if (active.valid) {
+      cachedMarketInfo = {
+        marketId: active.config.marketId,
+        pool: active.config.pool,
+        asset: active.config.asset || "BTC",
+        status: active.onchain?.status === 1 ? "Trading (Active)" : `Status ${active.onchain?.status}`,
+        finalized: Boolean(active.onchain?.finalized),
+        expiry: active.config.expiry,
+        timestamp: now,
+      };
+    }
+  } catch {}
+  return cachedMarketInfo;
+}
+
 export default async function handler(request, response) {
   if (request.method !== "GET") {
     response.statusCode = 405;
@@ -56,34 +88,16 @@ export default async function handler(request, response) {
     resolutionWatcher.checkResolutions({ autoClaim: true }).catch(() => {});
   }
 
-  const [records, balances] = await Promise.all([readRecords(), getBalances()]);
-  
-  let marketInfo = {
-    marketId: process.env.MARKET_ID || "0x0000000000000000000000000000000000000000000000000000000000015373",
-    pool: process.env.MARKET_POOL || "0xCA1B916A52694F569c0A543793Ec7Cc17674B2A6",
-    asset: "BTC",
-    status: "Trading (Active)",
-    finalized: false,
-  };
+  const [records, balances, marketInfo] = await Promise.all([readRecords(), getBalances(), getMarketInfo()]);
 
-  try {
-    const active = await resolveActiveMarket();
-    if (active.valid) {
-      marketInfo = {
-        marketId: active.config.marketId,
-        pool: active.config.pool,
-        asset: active.config.asset || "BTC",
-        status: active.onchain?.status === 1 ? "Trading (Active)" : `Status ${active.onchain?.status}`,
-        finalized: Boolean(active.onchain?.finalized),
-        expiry: active.config.expiry,
-      };
-    }
-  } catch {}
-
-  const dailyCap = Number(process.env.DAILY_LOSS_CAP_USD || 25);
+  const dailyCap = Number(process.env.DAILY_LOSS_CAP_USD || 50);
   const performanceMetrics = tradeStore.getPerformanceMetrics(dailyCap);
   const tradeHistory = tradeStore.getAllTrades({ limit: 50 });
+  const recentDecisions = tradeStore.getRecentDecisions({ limit: 50 });
   const registeredStrategies = defaultRegistry.list();
+
+  const currentDailyLoss = risk && typeof risk.getDailyLossUsd === "function" ? risk.getDailyLossUsd() : 0;
+  const isTripped = Boolean(risk && risk.tripped);
 
   response.setHeader("Cache-Control", "no-store");
   response.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -111,7 +125,9 @@ export default async function handler(request, response) {
         minConfidence: Number(process.env.MIN_CONFIDENCE || 0.72),
         dailyLossCapUsd: dailyCap,
         maxPositionSize: Number(process.env.MAX_POSITION_SIZE || 10),
-        cooldownSeconds: Number(process.env.COOLDOWN_MS || 900000) / 1000,
+        cooldownSeconds: Number(process.env.COOLDOWN_MS || 15000) / 1000,
+        tripped: isTripped,
+        dailyLossUsd: Number(currentDailyLoss.toFixed(2)),
       },
       stats: {
         totalSignals: records.length,
@@ -120,6 +136,7 @@ export default async function handler(request, response) {
       },
       performance: performanceMetrics,
       trades: tradeHistory,
+      decisions: recentDecisions,
       strategies: registeredStrategies,
       records,
       lastSync: new Date().toISOString(),

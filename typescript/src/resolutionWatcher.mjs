@@ -95,7 +95,8 @@ export class ResolutionWatcher {
           results.lost.push(trade.id);
 
           if (this.riskManager && typeof this.riskManager.recordLoss === "function") {
-            this.riskManager.recordLoss(cost);
+            const placedTime = trade.placed_at ? new Date(trade.placed_at).getTime() : Date.now();
+            this.riskManager.recordLoss(cost, placedTime);
           }
         }
       } catch (error) {

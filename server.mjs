@@ -8,6 +8,7 @@ import eventsHandler from "./api/events.mjs";
 import runSentinelHandler from "./api/run-sentinel.mjs";
 import faucetHandler from "./api/faucet.mjs";
 import claimHandler from "./api/claim.mjs";
+import riskResetHandler from "./api/risk-reset.mjs";
 
 const PORT = Number(process.env.PORT || 3000);
 const MIME_TYPES = {
@@ -41,6 +42,10 @@ const server = http.createServer(async (req, res) => {
 
   if (pathname === "/api/claim") {
     return claimHandler(req, res);
+  }
+
+  if (pathname === "/api/risk-reset") {
+    return riskResetHandler(req, res);
   }
 
   let filePath = pathname === "/" ? "/index.html" : pathname;
