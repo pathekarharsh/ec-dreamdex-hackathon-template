@@ -2,11 +2,15 @@ import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pub, me, COLLATERAL } from "../typescript/src/client.mjs";
 import { resolveActiveMarket } from "../typescript/src/market.mjs";
+import { tradeStore } from "../typescript/src/tradeStore.mjs";
+import { defaultRegistry } from "../typescript/src/strategies/index.mjs";
+import { resolutionWatcher } from "../typescript/src/resolutionWatcher.mjs";
 
 const logPath = resolve(process.cwd(), "data/sentinel-log.json");
 const erc20Abi = [{ constant: true, inputs: [{ name: "_owner", type: "address" }], name: "balanceOf", outputs: [{ name: "balance", type: "uint256" }], type: "function" }];
 
-let cachedBalances = { stt: "49.97", usdc: "97.33", timestamp: 0 };
+let cachedBalances = { stt: "49.95", usdc: "196.50", timestamp: 0 };
+let lastResolutionCheck = 0;
 
 async function readRecords() {
   try {
@@ -45,11 +49,18 @@ export default async function handler(request, response) {
     return response.end("Method Not Allowed");
   }
 
+  // Check resolutions periodically (every 45s) in background
+  const now = Date.now();
+  if (now - lastResolutionCheck > 45000) {
+    lastResolutionCheck = now;
+    resolutionWatcher.checkResolutions({ autoClaim: true }).catch(() => {});
+  }
+
   const [records, balances] = await Promise.all([readRecords(), getBalances()]);
   
   let marketInfo = {
-    marketId: process.env.MARKET_ID || "0x0000000000000000000000000000000000000000000000000000000000013ea2",
-    pool: process.env.MARKET_POOL || "0x6DD98CaeaC8d5f331396420b79F2f2C781655c65",
+    marketId: process.env.MARKET_ID || "0x0000000000000000000000000000000000000000000000000000000000015373",
+    pool: process.env.MARKET_POOL || "0xCA1B916A52694F569c0A543793Ec7Cc17674B2A6",
     asset: "BTC",
     status: "Trading (Active)",
     finalized: false,
@@ -69,7 +80,10 @@ export default async function handler(request, response) {
     }
   } catch {}
 
-  const executedTrades = records.filter((r) => r.executed || r.execution?.executed || r.status?.startsWith("submitted"));
+  const dailyCap = Number(process.env.DAILY_LOSS_CAP_USD || 25);
+  const performanceMetrics = tradeStore.getPerformanceMetrics(dailyCap);
+  const tradeHistory = tradeStore.getAllTrades({ limit: 50 });
+  const registeredStrategies = defaultRegistry.list();
 
   response.setHeader("Cache-Control", "no-store");
   response.setHeader("Content-Type", "application/json; charset=utf-8");
@@ -95,16 +109,18 @@ export default async function handler(request, response) {
       },
       risk: {
         minConfidence: Number(process.env.MIN_CONFIDENCE || 0.72),
-        dailyLossCapUsd: Number(process.env.DAILY_LOSS_CAP_USD || 25),
+        dailyLossCapUsd: dailyCap,
         maxPositionSize: Number(process.env.MAX_POSITION_SIZE || 10),
         cooldownSeconds: Number(process.env.COOLDOWN_MS || 900000) / 1000,
       },
       stats: {
         totalSignals: records.length,
-        executedTrades: executedTrades.length,
+        executedTrades: performanceMetrics.totalTrades,
         blockedSignals: records.filter((r) => r.status === "blocked").length,
-        latestTrade: executedTrades[0] || null,
       },
+      performance: performanceMetrics,
+      trades: tradeHistory,
+      strategies: registeredStrategies,
       records,
       lastSync: new Date().toISOString(),
     })
