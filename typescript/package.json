@@ -8,7 +8,9 @@
     "discover": "tsx src/discover.mjs",
     "lifecycle": "tsx src/lifecycle.mjs",
     "redeem": "tsx src/redeem.mjs",
+    "start": "tsx src/agent.mjs --loop",
     "sentinel": "tsx src/agent.mjs",
+    "doctor": "tsx ../scripts/doctor.mjs",
     "verify": "tsx src/verify.mjs",
     "config": "tsx src/config.mjs",
     "market": "tsx src/market.mjs"

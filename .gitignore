@@ -5,3 +5,5 @@ market.json
 out/
 cache/
 broadcast/
+*.db-shm
+*.db-wal

@@ -1,0 +1,28 @@
+{
+  "name": "sentinel-reactive",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Autonomous AI Trading Agent & Live Reactive Intelligence Dashboard for DreamDEX Event Contracts on Somnia Shannon Testnet",
+  "scripts": {
+    "start": "node server.mjs",
+    "dashboard": "node server.mjs",
+    "doctor": "npm --prefix typescript run doctor",
+    "sentinel": "npm --prefix typescript run sentinel",
+    "agent": "npm --prefix typescript run start",
+    "discover": "npm --prefix typescript run discover",
+    "lifecycle": "npm --prefix typescript run lifecycle",
+    "redeem": "npm --prefix typescript run redeem"
+  },
+  "keywords": [
+    "somnia",
+    "dreamdex",
+    "event-contracts",
+    "prediction-markets",
+    "trading-agent",
+    "groq",
+    "reactive"
+  ],
+  "author": "Sentinel Reactive Team",
+  "license": "MIT"
+}

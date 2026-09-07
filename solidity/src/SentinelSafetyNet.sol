@@ -26,6 +26,7 @@ contract SentinelSafetyNet {
     error NotAuthorized();
     error InvalidAddress();
     error NotApprovedPool();
+    error OrderNotTracked();
 
     constructor(address initialGuardian) {
         if (initialGuardian == address(0)) revert InvalidAddress();
@@ -66,6 +67,7 @@ contract SentinelSafetyNet {
     function cancelTrackedOrder(address pool, uint128 orderId) external onlyAuthorized {
         if (!approvedPools[pool]) revert NotApprovedPool();
         if (!armed) revert NotAuthorized();
+        if (!trackedOrders[pool][orderId]) revert OrderNotTracked();
         ISentinelPool(pool).cancelOrder(orderId);
         trackedOrders[pool][orderId] = false;
         nonce++;

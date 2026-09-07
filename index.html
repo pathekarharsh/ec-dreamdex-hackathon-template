@@ -3,23 +3,348 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sentinel Reactive safety-first DreamDEX monitoring dashboard">
-  <title>Sentinel Reactive</title>
+  <meta name="description" content="Sentinel Reactive - Autonomous AI Event Contracts Trading Agent & Live Reactive Intelligence Dashboard for DreamDEX on Somnia">
+  <title>Sentinel Reactive — DreamDEX Trading Agent & Performance Dashboard</title>
   <link rel="stylesheet" href="/dashboard/styles.css">
+  <style>
+    .topbar-right { display: flex; align-items: center; gap: 12px; }
+    .wallet-chip { border: 1px solid var(--line); padding: 8px 14px; background: #0a1727; display: flex; align-items: center; gap: 8px; font: 12px 'DM Mono'; }
+    .wallet-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
+    .wallet-chip b { color: var(--text); }
+    .wallet-chip small { color: var(--muted); font-size: 11px; margin-left: 4px; }
+    .status-chip.live i { background: var(--mint); box-shadow: 0 0 12px var(--mint); }
+    .status-chip.live b { color: var(--mint); }
+    .status-chip.dry i { background: var(--amber); box-shadow: 0 0 12px var(--amber); }
+    .status-chip.dry b { color: var(--amber); }
+    
+    .action-controls { margin: 0 0 20px; padding: 20px 24px; border: 1px solid var(--line); background: #0a1727; }
+    .action-controls-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .action-controls h3 { font-size: 18px; color: var(--text); }
+    .control-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .btn-action { border: 1px solid var(--line); background: #0e2236; color: var(--text); padding: 10px 16px; font: 12px/1 'DM Mono'; cursor: pointer; transition: all .15s ease; border-radius: 2px; }
+    .btn-action:hover { border-color: var(--cyan); color: var(--cyan); background: #122b44; }
+    .btn-primary { border-color: var(--cyan); background: #103248; color: var(--cyan); font-weight: 500; }
+    .btn-primary:hover { background: #164260; color: #fff; box-shadow: 0 0 16px rgba(94, 216, 229, 0.25); }
+    .btn-claim-all { border-color: var(--mint); background: #0e3024; color: var(--mint); font-weight: 500; }
+    .btn-claim-all:hover { background: #154534; color: #fff; box-shadow: 0 0 16px rgba(125, 226, 176, 0.35); }
+    
+    .feedback-banner { margin-top: 14px; padding: 10px 14px; font: 12px 'DM Mono'; border: 1px solid var(--line); display: none; }
+    .feedback-banner.running { display: block; background: #0d2638; border-color: var(--cyan); color: var(--cyan); }
+    .feedback-banner.success { display: block; background: #0d2c22; border-color: var(--mint); color: var(--mint); }
+    .feedback-banner.error { display: block; background: #331518; border-color: #ff5252; color: #ff8a80; }
+    .spinner { display: inline-block; width: 10px; height: 10px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: spin .7s linear infinite; margin-right: 6px; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    /* Performance Section */
+    .performance-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0 0 24px; }
+    .perf-card { background: #0a1727; border: 1px solid var(--line); padding: 18px 20px; position: relative; overflow: hidden; }
+    .perf-card small { display: block; color: var(--muted); font: 11px 'DM Mono'; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6px; }
+    .perf-card strong { display: block; font-size: 26px; color: #fff; font-family: 'DM Mono', monospace; }
+    .perf-card .perf-sub { font-size: 11px; color: var(--muted); margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+    .perf-card.highlight { border-color: rgba(125, 226, 176, 0.4); background: linear-gradient(135deg, #0a1727 70%, rgba(125, 226, 176, 0.08)); }
+    .perf-card.pnl-positive strong { color: var(--mint); }
+    .perf-card.pnl-negative strong { color: #ff5252; }
+    
+    /* Tables & Ledgers */
+    .ledger-container { overflow-x: auto; margin-top: 14px; }
+    .ledger-table { width: 100%; border-collapse: collapse; font: 12px 'DM Mono'; text-align: left; }
+    .ledger-table th { color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: 11px; font-weight: 500; }
+    .ledger-table td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: middle; color: #d0e0ee; }
+    .ledger-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+    
+    .badge { display: inline-block; font: 10px 'DM Mono'; padding: 3px 7px; border-radius: 2px; font-weight: 600; }
+    .badge-open { background: rgba(94, 216, 229, 0.12); color: var(--cyan); border: 1px solid rgba(94, 216, 229, 0.3); }
+    .badge-won { background: rgba(125, 226, 176, 0.15); color: var(--mint); border: 1px solid rgba(125, 226, 176, 0.5); }
+    .badge-lost { background: rgba(255, 82, 82, 0.1); color: #ff8a80; border: 1px solid rgba(255, 82, 82, 0.3); }
+    .badge-redeemed { background: rgba(186, 147, 255, 0.15); color: #c4a7ff; border: 1px solid rgba(186, 147, 255, 0.4); }
+    
+    .badge-side-yes { color: var(--mint); background: rgba(125, 226, 176, 0.1); border: 1px solid rgba(125, 226, 176, 0.25); padding: 2px 6px; font-size: 11px; }
+    .badge-side-no { color: #ff6b6b; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.25); padding: 2px 6px; font-size: 11px; }
+
+    .btn-claim-row { border: 1px solid var(--mint); background: rgba(125, 226, 176, 0.15); color: var(--mint); padding: 5px 10px; font: 11px 'DM Mono'; cursor: pointer; transition: all .15s ease; border-radius: 2px; font-weight: 500; }
+    .btn-claim-row:hover { background: var(--mint); color: #07111f; box-shadow: 0 0 12px rgba(125, 226, 176, 0.5); }
+    .btn-claim-row:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* Strategy Breakdown List */
+    .strategy-item { padding: 14px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
+    .strategy-item:last-child { border-bottom: 0; }
+    .strategy-title { font-weight: 600; font-size: 13px; color: #fff; margin-bottom: 4px; }
+    .strategy-tag { font: 10px 'DM Mono'; color: var(--cyan); border: 1px solid rgba(94, 216, 229, 0.3); padding: 2px 6px; }
+    .strategy-stats { font: 12px 'DM Mono'; text-align: right; }
+    .strategy-stats strong { color: var(--mint); }
+
+    .signal-headline-box { padding: 4px 0; }
+    .signal-header-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .action-tag { font: 11px/1 'DM Mono'; padding: 5px 8px; font-weight: 600; border-radius: 2px; }
+    .conf-badge { font: 11px 'DM Mono'; color: var(--muted); border: 1px solid var(--line); padding: 4px 8px; }
+    .conf-badge strong { color: var(--text); }
+    .risk-badge { font: 10px 'DM Mono'; padding: 4px 8px; }
+    .risk-badge.approved { color: var(--mint); border: 1px solid rgba(125, 226, 176, 0.4); background: rgba(125, 226, 176, 0.08); }
+    .risk-badge.blocked { color: var(--amber); border: 1px solid rgba(244, 184, 96, 0.4); background: rgba(244, 184, 96, 0.08); }
+    .signal-title { font-size: 18px; margin: 8px 0 12px; color: #fff; line-height: 1.4; }
+    .signal-title a { color: #fff; text-decoration: none; }
+    .signal-title a:hover { color: var(--cyan); }
+    .reasoning-box { background: #071320; border: 1px solid var(--line); padding: 14px 16px; border-radius: 2px; margin-bottom: 12px; }
+    .reasoning-box p { font-size: 13px; color: #c6d6e6; margin: 0 0 8px; line-height: 1.5; }
+    .reasoning-box p:last-child { margin-bottom: 0; }
+    .key-evidence { color: var(--muted) !important; font-size: 12px !important; }
+    .tx-badge-box { display: flex; align-items: center; gap: 10px; font: 11px 'DM Mono'; color: var(--mint); background: rgba(125, 226, 176, 0.08); border: 1px solid rgba(125, 226, 176, 0.3); padding: 8px 12px; flex-wrap: wrap; }
+    .tx-link { color: var(--cyan); text-decoration: none; font-weight: 500; }
+    .tx-link:hover { text-decoration: underline; }
+    .order-id { color: var(--muted); margin-left: auto; font-size: 10px; }
+    .tx-status-note { font: 11px 'DM Mono'; color: var(--muted); }
+    .activity-row { display: grid; grid-template-columns: 8px 1fr auto; align-items: start; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .activity-title { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+    .activity-conf { font: 10px 'DM Mono'; color: var(--cyan); border: 1px solid var(--line); padding: 2px 4px; }
+    .activity-desc { color: var(--muted); font-size: 11px; margin-top: 4px; display: block; }
+    .tx-link-chip { display: inline-block; margin-top: 5px; font: 10px 'DM Mono'; color: var(--mint); text-decoration: none; border: 1px solid rgba(125, 226, 176, 0.3); padding: 2px 6px; }
+    .tx-link-chip:hover { background: rgba(125, 226, 176, 0.15); }
+    .link { color: var(--cyan); text-decoration: none; }
+    .link:hover { text-decoration: underline; }
+
+    @media(max-width: 900px) {
+      .performance-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 800px) {
+      .topbar { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .topbar-right { flex-direction: column; align-items: flex-start; width: 100%; }
+      .action-controls-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .performance-bar { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
-      <div><p class="eyebrow">SOMNIA / DREAMDEX</p><h1>Sentinel <span>Reactive</span></h1></div>
-      <div class="status-chip"><i></i><b>DRY RUN</b><small>Safety-first mode</small></div>
+      <div>
+        <p class="eyebrow">SOMNIA / DREAMDEX EVENT CONTRACTS</p>
+        <h1>Sentinel <span>Reactive</span></h1>
+      </div>
+      <div class="topbar-right">
+        <div class="wallet-chip" id="wallet-chip">
+          <span class="wallet-dot"></span><b>0xb6C0...fDAf</b><small>49.95 STT · 196.50 tUSDC</small>
+        </div>
+        <div class="status-chip live" id="status-chip">
+          <i></i><b>LIVE EXECUTION</b><small>Somnia Shannon 50312</small>
+        </div>
+      </div>
     </header>
-    <section class="hero"><div><p class="eyebrow cyan">AUTONOMOUS EVENT-CONTRACT AGENT</p><h2>Reason clearly.<br><em>React instantly.</em></h2><p class="lede">A deterministic risk gate between real-world signals and DreamDEX execution, with an independent on-chain safety net.</p></div><aside class="pulse-card"><div class="pulse-ring"><div></div></div><p>SAFETY NET</p><strong>CONFIGURATION REQUIRED</strong><small>Live monitoring starts after setup</small></aside></section>
-    <section class="metrics"><article><small>AGENT STATE</small><strong>Standby</strong><span class="mint">● Awaiting configuration</span></article><article><small>RISK THRESHOLD</small><strong>72%</strong><span>Minimum confidence</span></article><article><small>DAILY LOSS CAP</small><strong>$25.00</strong><span>$0.00 utilized</span></article><article><small>REACTIVITY</small><strong>Ready</strong><span>Event-driven feed</span></article></section>
-    <section class="grid"><article class="panel wide"><div class="panel-head"><div><p class="eyebrow">SIGNAL ROOM</p><h3>News reasoning</h3></div><span class="live">STANDBY</span></div><div class="signal"><div class="signal-mark">N</div><div><div class="signal-title">Awaiting configured news provider</div><p>Add <code>NEWS_API_KEY</code> to stream current headlines into the reasoning core.</p><div class="tags"><span>HOLD</span><span>confidence —</span><span>risk gate idle</span></div></div><time>now</time></div></article>
-      <article class="panel"><div class="panel-head"><div><p class="eyebrow">ON-CHAIN ACTIVITY</p><h3>Reactive feed</h3></div><span class="dot"></span></div><div class="empty"><div class="hex">↯</div><p>No DreamDEX events yet</p><small>Event subscriptions appear here after the RPC and market are configured.</small></div></article>
-      <article class="panel"><div class="panel-head"><div><p class="eyebrow">PROTECTION LAYER</p><h3>Safety-net status</h3></div></div><dl class="details"><div><dt>Subscription</dt><dd>Not deployed</dd></div><div><dt>Trigger</dt><dd>Market finalization</dd></div><div><dt>Action</dt><dd>Cancel open orders</dd></div><div><dt>Owner balance</dt><dd>Awaiting config</dd></div></dl><button class="outline" type="button" disabled>Configure on-chain handler <span>→</span></button></article>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow cyan">AUTONOMOUS EVENT-CONTRACT AGENT & FRAMEWORK</p>
+        <h2>Reason clearly.<br><em>Claim instantly.</em></h2>
+        <p class="lede">Autonomous risk-gated event contract execution, reactive resolution tracking, and instant on-chain claiming for DreamDEX on Somnia.</p>
+      </div>
+      <aside class="pulse-card">
+        <div class="pulse-ring"><div></div></div>
+        <p>AGENT ENGINE</p>
+        <strong style="color:var(--mint)">LIVE & ARMED</strong>
+        <small>Somnia Shannon Testnet</small>
+      </aside>
     </section>
-    <footer><span>SHANNON TESTNET · CHAIN 50312</span><span>UNAUDITED · TESTNET ONLY</span><span>Last sync — not connected</span></footer>
+
+    <!-- CORE TELEMETRY METRICS -->
+    <section class="metrics">
+      <article id="metric-state">
+        <small>AGENT STATE</small>
+        <strong>Live Trading</strong>
+        <span class="mint">● Armed on Somnia Testnet</span>
+      </article>
+      <article id="metric-risk">
+        <small>RISK THRESHOLD</small>
+        <strong>72%</strong>
+        <span>Min confidence · Max 10 contracts</span>
+      </article>
+      <article id="metric-balance">
+        <small>COLLATERAL BALANCE</small>
+        <strong>196.50 tUSDC</strong>
+        <span>Gas: 49.95 STT ready</span>
+      </article>
+      <article id="metric-market">
+        <small>ACTIVE TARGET</small>
+        <strong>BTC Window</strong>
+        <span>Trading (Active)</span>
+      </article>
+    </section>
+
+    <!-- OPERATOR ACTIONS BAR -->
+    <section class="action-controls">
+      <div class="action-controls-header">
+        <div>
+          <p class="eyebrow cyan">AUTONOMOUS OPERATOR</p>
+          <h3>Execute & Manage Agent Pipeline</h3>
+        </div>
+        <span class="live">READY</span>
+      </div>
+      <div class="control-row">
+        <button class="btn-action btn-primary" type="button" id="btn-run-sentinel">⚡ Run Live Cycle Now</button>
+        <button class="btn-action btn-claim-all" type="button" id="btn-claim-all">💰 Claim All Won Payouts</button>
+        <button class="btn-action" type="button" id="btn-reset-risk">🛡️ Reset Risk Gates</button>
+        <button class="btn-action" type="button" id="btn-faucet">💧 Claim 100 tUSDC Faucet</button>
+        <button class="btn-action" type="button" id="btn-refresh">🔄 Refresh Balances</button>
+        <a class="btn-action" href="https://shannon-explorer.somnia.network/address/0xb6C0D3a50B5Cd2eAf531eb3fEC9dFb68249ffDAf" target="_blank" rel="noopener" style="text-decoration:none">🧭 Wallet on Explorer ↗</a>
+        <a class="btn-action" href="https://app.dreamdex.io/event-contracts" target="_blank" rel="noopener" style="text-decoration:none">📊 DreamDEX App ↗</a>
+      </div>
+      <div class="feedback-banner" id="action-feedback"></div>
+    </section>
+
+    <!-- MODULE 15: PERFORMANCE & RESOLUTION DASHBOARD -->
+    <section class="performance-bar">
+      <article class="perf-card highlight" id="perf-winrate">
+        <small>Realized Win Rate</small>
+        <strong id="val-winrate">81.3%</strong>
+        <div class="perf-sub">
+          <span class="mint" id="val-wins-losses">13 Won · 3 Lost</span>
+          <span>(16 resolved)</span>
+        </div>
+      </article>
+
+      <article class="perf-card pnl-positive" id="perf-pnl">
+        <small>Net Realized P&L</small>
+        <strong id="val-pnl">+$3.27</strong>
+        <div class="perf-sub">
+          <span>tUSDC Realized · Largest Win: <b id="val-largest-win">+$3.27</b></span>
+        </div>
+      </article>
+
+      <article class="perf-card highlight" id="perf-claimable">
+        <small>Unclaimed Winnings</small>
+        <strong style="color:var(--cyan)" id="val-claimable">$12.00</strong>
+        <div class="perf-sub">
+          <span id="val-unclaimed-count">12 trade(s) ready to claim</span>
+        </div>
+      </article>
+
+      <article class="perf-card" id="perf-risk">
+        <small>Daily Risk Cap</small>
+        <strong id="val-risk-cap">$0.00 / $25</strong>
+        <div class="perf-sub">
+          <span class="mint">● Safe (0% circuit utilization)</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- MAIN PANELS GRID -->
+    <section class="grid">
+      <!-- MODULE 13 & 14: REAL-TIME TRADES & SETTLEMENT LEDGER -->
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">MODULE 13 & 14 / PERSISTENT SQLITE STORE</p>
+            <h3>Trades History & Resolution Ledger</h3>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <button class="btn-action btn-primary" type="button" id="tab-trades" style="padding:6px 10px; font-size:11px;">On-Chain Trades</button>
+            <button class="btn-action" type="button" id="tab-decisions" style="padding:6px 10px; font-size:11px;">AI Signals & Risk Verdicts</button>
+            <span class="live" id="trades-total-badge">TRADES RECORDED</span>
+          </div>
+        </div>
+        <div class="ledger-container">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>PLACED</th>
+                <th>STRATEGY</th>
+                <th>SIDE</th>
+                <th>PRICE</th>
+                <th>QTY</th>
+                <th>STATUS</th>
+                <th>OUTCOME / PAYOUT</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody id="trades-ledger-body">
+              <tr>
+                <td colspan="9" style="text-align:center; color:var(--muted); padding:24px;">Loading trades from SQLite database...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <!-- MODULE 16: STRATEGY LEADERBOARD -->
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">MODULE 16 / PLUGGABLE STRATEGIES</p>
+            <h3>Strategy Performance</h3>
+          </div>
+          <span class="dot"></span>
+        </div>
+        <div id="strategy-breakdown-list">
+          <div class="empty">
+            <div class="hex">↯</div>
+            <p>Loading strategies...</p>
+          </div>
+        </div>
+        <button class="outline" type="button" onclick="window.open('https://github.com/pathekarharsh/ec-dreamdex-hackathon-template/blob/main/STRATEGIES.md')">
+          Read STRATEGIES.md Guide <span>↗</span>
+        </button>
+      </article>
+
+      <!-- ON-CHAIN ACTIVITY FEED -->
+      <article class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">SOMNIA SHANNON (50312)</p>
+            <h3>On-Chain Trades & Activity</h3>
+          </div>
+          <span class="dot"></span>
+        </div>
+        <div class="activity-list" id="activity-list">
+          <div class="empty">
+            <div class="hex">↯</div>
+            <p>Loading on-chain events...</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- SIGNAL ROOM (Groq AI) -->
+      <article class="panel wide signal-room">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">INTELLIGENCE & LLM REASONING</p>
+            <h3>Latest Signal Analysis (Groq AI)</h3>
+          </div>
+          <span class="live">STREAMING</span>
+        </div>
+        <div id="signal-content">
+          <div class="empty">
+            <div class="hex">↯</div>
+            <p>Loading recent signals...</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TELEMETRY & PROTECTION DETAILS -->
+      <article class="panel wide">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">SYSTEM TELEMETRY</p>
+            <h3>Configuration & On-Chain Safety</h3>
+          </div>
+        </div>
+        <dl class="details" id="protection-details">
+          <div><dt>Somnia Wallet</dt><dd class="link">0xb6C0...fDAf</dd></div>
+          <div><dt>Active Pool</dt><dd class="link">0xCA1B...B2A6</dd></div>
+          <div><dt>AI Reasoning</dt><dd>Groq Cloud (openai/gpt-oss-120b)</dd></div>
+          <div><dt>News Intelligence</dt><dd>NewsAPI.org (Live)</dd></div>
+          <div><dt>Database Engine</dt><dd>SQLite (data/sentinel.db via node:sqlite)</dd></div>
+          <div><dt>Execution Mode</dt><dd style="color:var(--mint)">LIVE ON-CHAIN (Somnia Shannon 50312)</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <footer>
+      <span>SHANNON TESTNET · CHAIN 50312</span>
+      <span>AI ENGINE · GROQ CLOUD</span>
+      <span>SQLITE STORE · DATA/SENTINEL.DB</span>
+      <span id="last-sync-time">Last sync — live backend</span>
+    </footer>
   </main>
+
+  <script src="/dashboard/app.js" defer></script>
 </body>
 </html>
