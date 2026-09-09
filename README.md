@@ -209,6 +209,22 @@ Expected output:
 
 ---
 
+## ☁️ Production Deployment: Split Services
+
+The dashboard and trading worker must run separately in production. Deploy the repository root to Vercel for the dashboard, and deploy the included `Dockerfile` to a persistent container service for the worker.
+
+### Vercel dashboard variables
+
+- `DATABASE_URL` — provided by the connected Neon integration
+- `AGENT_INGEST_SECRET` — a long random shared secret
+- `MARKET_ID` and `MARKET_POOL` — optional read-only market metadata
+
+### Persistent worker variables
+
+Copy `worker.env.example` to the worker service environment. Set `AGENT_DASHBOARD_URL` to the Vercel deployment URL and use the same `AGENT_INGEST_SECRET`. Keep `PRIVATE_KEY` only on the worker; it must never be configured on the public dashboard deployment.
+
+The worker runs `npm run agent`, maintains the Somnia WebSocket connection, executes the monitoring loop, and publishes decisions/trades to Neon through `/api/ingest`. The Vercel dashboard reads those shared events through `/api/status` and `/api/events`.
+
 ## 💻 Running Sentinel Reactive
 
 ### Option A: Launch the Web Dashboard
