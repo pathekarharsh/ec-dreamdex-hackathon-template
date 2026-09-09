@@ -5,10 +5,16 @@ import { config as loadEnv } from "./typescript/node_modules/dotenv/lib/main.js"
 loadEnv({ path: path.join(process.cwd(), ".env") });
 import statusHandler from "./api/status.mjs";
 import eventsHandler from "./api/events.mjs";
-import runSentinelHandler from "./api/run-sentinel.mjs";
-import faucetHandler from "./api/faucet.mjs";
-import claimHandler from "./api/claim.mjs";
-import riskResetHandler from "./api/risk-reset.mjs";
+import ingestHandler from "./api/ingest.mjs";
+
+const lazyHandler = (loader) => async (request, response) => {
+  const module = await loader();
+  return module.default(request, response);
+};
+const runSentinelHandler = lazyHandler(() => import("./api/run-sentinel.mjs"));
+const faucetHandler = lazyHandler(() => import("./api/faucet.mjs"));
+const claimHandler = lazyHandler(() => import("./api/claim.mjs"));
+const riskResetHandler = lazyHandler(() => import("./api/risk-reset.mjs"));
 
 const PORT = Number(process.env.PORT || 3000);
 const MIME_TYPES = {
@@ -46,6 +52,10 @@ const server = http.createServer(async (req, res) => {
 
   if (pathname === "/api/risk-reset") {
     return riskResetHandler(req, res);
+  }
+
+  if (pathname === "/api/ingest") {
+    return ingestHandler(req, res);
   }
 
   let filePath = pathname === "/" ? "/index.html" : pathname;

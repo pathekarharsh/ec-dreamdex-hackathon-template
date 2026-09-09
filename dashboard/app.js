@@ -112,7 +112,7 @@ function renderUI(data) {
       <div><dt>Active Pool</dt><dd><a href="https://shannon-explorer.somnia.network/address/${data.market?.pool}" target="_blank" class="link">${shortAddr(data.market?.pool)} ↗</a></dd></div>
       <div><dt>AI Reasoning</dt><dd>${data.ai?.provider || "Groq"} (${data.ai?.model || "gpt-oss-120b"})</dd></div>
       <div><dt>News Feed</dt><dd>${data.news?.provider || "NewsAPI.org"}</dd></div>
-      <div><dt>Database Engine</dt><dd>SQLite (data/sentinel.db via node:sqlite)</dd></div>
+      <div><dt>Database Engine</dt><dd>${data.database?.connected ? "Neon Postgres (shared agent ledger)" : "Neon database not configured"}</dd></div>
       <div><dt>Risk Circuit Breaker</dt><dd style="color:${data.risk?.tripped ? '#ff5252' : 'var(--mint)'}">${data.risk?.tripped ? 'TRIPPED (Click Reset)' : 'ACTIVE & NORMAL'}</dd></div>
       <div><dt>Execution Mode</dt><dd style="color:var(--mint)">LIVE ON-CHAIN (Somnia Shannon 50312)</dd></div>
     `;

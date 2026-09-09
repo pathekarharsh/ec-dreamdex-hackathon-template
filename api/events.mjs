@@ -1,13 +1,10 @@
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { readEvents } from "../lib/neon.mjs";
 
-const logPath = resolve(process.cwd(), "data/sentinel-log.json");
 const wait = (ms) => new Promise((resolvePromise) => setTimeout(resolvePromise, ms));
 
 async function snapshot() {
   try {
-    const records = JSON.parse(await readFile(logPath, "utf8"));
-    return Array.isArray(records) ? records.slice(-100).reverse() : [];
+    return await readEvents(100);
   } catch {
     return [];
   }

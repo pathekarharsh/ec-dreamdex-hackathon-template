@@ -7,6 +7,7 @@ import { ReactiveEventBridge } from "./reactive.mjs";
 import { tradeStore } from "./tradeStore.mjs";
 import { resolutionWatcher } from "./resolutionWatcher.mjs";
 import { defaultRegistry } from "./strategies/index.mjs";
+import { publishAgentEvent } from "./remoteSink.mjs";
 
 const store = new SentinelStore();
 export const risk = new RiskManager(sentinelConfig);
@@ -32,14 +33,16 @@ bridge.on("warn", (w) => console.warn(`[reactive] Stream notice: ${w?.message ||
 let lastPoolEventEvaluation = 0;
 bridge.on("poolEvent", async (e) => {
   console.log(`[reactive-pool] Event detected on pool ${e.pool}`);
-  store.append({
+  const poolRecord = {
     source: "onchain-reactive",
     title: `Somnia Pool Event`,
     detail: `Live pool log detected on ${e.pool}`,
     txHash: e.txHash,
     status: "confirmed",
     tone: "cyan",
-  });
+  };
+  store.append(poolRecord);
+  await publishAgentEvent("onchain", poolRecord);
 
   const now = Date.now();
   if (now - lastPoolEventEvaluation < 30000) {
@@ -133,6 +136,10 @@ async function handleStrategyDecision(reasoning, signal, signalTitle, url = null
   };
 
   await store.append(record);
+  await publishAgentEvent("decision", record);
+  if (executionResult.executed) {
+    await publishAgentEvent("trade", { ...record, execution: executionResult });
+  }
   return { reasoning, gate, execution: executionResult };
 }
 
