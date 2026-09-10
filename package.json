@@ -6,7 +6,7 @@
   "description": "Autonomous AI Trading Agent & Live Reactive Intelligence Dashboard for DreamDEX Event Contracts on Somnia Shannon Testnet",
   "scripts": {
     "dev": "node server.mjs",
-    "build": "node --check server.mjs && node --check dashboard/app.js",
+    "build": "node --check server.mjs && node --check dashboard/app.js && node scripts/build.mjs",
     "start": "node server.mjs",
     "dashboard": "node server.mjs",
     "doctor": "npm --prefix typescript run doctor",
