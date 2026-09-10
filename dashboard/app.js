@@ -49,13 +49,21 @@ function renderWallet(address, chainId = SOMNIA_CHAIN_ID) {
   if (button) button.textContent = chainOk ? "Wallet connected" : "Switch to Somnia";
 }
 
-async function connectWallet() {
-  if (!window.ethereum) {
-    setWalletFeedback("Install MetaMask or Rabby to connect a wallet.", "error");
-    return;
+  function getWalletProvider() {
+  const injected = window.ethereum;
+  if (!injected) return null;
+  const providers = Array.isArray(injected.providers) ? injected.providers : [injected];
+  return providers.find((provider) => provider.isMetaMask || provider.isRabby) || providers[0];
+  }
+
+  async function connectWallet() {
+  const provider = getWalletProvider();
+  if (!provider) {
+  setWalletFeedback("No wallet extension detected. Install MetaMask or Rabby, then reload this page.", "error");
+  return;
   }
   try {
-    state.provider = window.ethereum;
+  state.provider = provider;
     const accounts = await state.provider.request({ method: "eth_requestAccounts" });
     let chainId = await state.provider.request({ method: "eth_chainId" });
     if (chainId.toLowerCase() !== SOMNIA_CHAIN_ID) {
@@ -753,9 +761,21 @@ async function claimFaucet() {
 }
 
   // Attach event listeners
-  window.addEventListener("DOMContentLoaded", () => {
+  function initializeDashboard() {
   const connectBtn = $("#btn-connect-wallet");
-  if (connectBtn) connectBtn.addEventListener("click", connectWallet);
+  if (connectBtn && !connectBtn.dataset.bound) {
+  connectBtn.dataset.bound = "true";
+  connectBtn.addEventListener("click", connectWallet);
+  }
+  const provider = getWalletProvider();
+  if (provider) {
+  state.provider = provider;
+  provider.request({ method: "eth_accounts" }).then(async (accounts) => {
+  if (accounts?.[0]) renderWallet(accounts[0], await provider.request({ method: "eth_chainId" }));
+  }).catch(() => {});
+  }
+
+
 
   const runBtn = $("#btn-run-sentinel");
   if (runBtn) runBtn.addEventListener("click", runSentinelCycle);
@@ -797,4 +817,10 @@ async function claimFaucet() {
 
   // Periodic status poll (every 10s)
   setInterval(fetchStatus, 10000);
-});
+  }
+
+  if (document.readyState === "loading") {
+  window.addEventListener("DOMContentLoaded", initializeDashboard, { once: true });
+  } else {
+  initializeDashboard();
+  }
