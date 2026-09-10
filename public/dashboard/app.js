@@ -7,8 +7,11 @@ const state = {
   strategies: [],
   isRunning: false,
   ledgerTab: "trades", // "trades" | "decisions"
+  wallet: null,
+  provider: null,
 };
 
+const SOMNIA_CHAIN_ID = "0xc498";
 const $ = (selector) => document.querySelector(selector);
 const escapeHtml = (value) =>
   String(value ?? "").replace(/[&<>'"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[c]));
@@ -21,6 +24,67 @@ function shortAddr(addr) {
 function shortTx(tx) {
   if (!tx || tx.length < 12) return tx || "—";
   return `${tx.slice(0, 8)}...${tx.slice(-6)}`;
+}
+
+function setWalletFeedback(message, kind = "running") {
+  const banner = $("#action-feedback");
+  if (!banner) return;
+  banner.style.display = "block";
+  banner.className = `feedback-banner ${kind}`;
+  banner.textContent = message;
+}
+
+function renderWallet(address, chainId = SOMNIA_CHAIN_ID) {
+  state.wallet = address || null;
+  const chip = $("#wallet-chip");
+  const button = $("#btn-connect-wallet");
+  if (!chip) return;
+  if (!address) {
+    chip.innerHTML = `<span class="wallet-dot"></span><b>Wallet not connected</b><small>Connect MetaMask or Rabby</small>`;
+    if (button) button.textContent = "Connect wallet";
+    return;
+  }
+  const chainOk = chainId?.toLowerCase() === SOMNIA_CHAIN_ID;
+  chip.innerHTML = `<span class="wallet-dot"></span><b>${shortAddr(address)}</b><small>${chainOk ? "Somnia Shannon" : "Wrong network"}</small>`;
+  if (button) button.textContent = chainOk ? "Wallet connected" : "Switch to Somnia";
+}
+
+async function connectWallet() {
+  if (!window.ethereum) {
+    setWalletFeedback("Install MetaMask or Rabby to connect a wallet.", "error");
+    return;
+  }
+  try {
+    state.provider = window.ethereum;
+    const accounts = await state.provider.request({ method: "eth_requestAccounts" });
+    let chainId = await state.provider.request({ method: "eth_chainId" });
+    if (chainId.toLowerCase() !== SOMNIA_CHAIN_ID) {
+      try {
+        await state.provider.request({ method: "wallet_switchEthereumChain", params: [{ chainId: SOMNIA_CHAIN_ID }] });
+        chainId = await state.provider.request({ method: "eth_chainId" });
+      } catch (switchError) {
+        if (switchError?.code === 4902) {
+          await state.provider.request({ method: "wallet_addEthereumChain", params: [{ chainId: SOMNIA_CHAIN_ID, chainName: "Somnia Shannon", nativeCurrency: { name: "Somnia Testnet Token", symbol: "STT", decimals: 18 }, rpcUrls: ["https://dream-rpc.somnia.network"], blockExplorerUrls: ["https://shannon-explorer.somnia.network"] }] });
+          chainId = SOMNIA_CHAIN_ID;
+        } else throw switchError;
+      }
+    }
+    renderWallet(accounts[0], chainId);
+    state.provider.on?.("accountsChanged", (nextAccounts) => {
+      if (nextAccounts?.[0]) renderWallet(nextAccounts[0], chainId);
+      else disconnectWallet();
+    });
+    state.provider.on?.("chainChanged", (nextChainId) => renderWallet(state.wallet, nextChainId));
+    setWalletFeedback("Wallet connected. Review and sign transactions only when the app requests them.", "success");
+  } catch (error) {
+    setWalletFeedback(error?.message || "Wallet connection was rejected.", "error");
+  }
+}
+
+function disconnectWallet() {
+  state.wallet = null;
+  state.provider = null;
+  renderWallet(null);
 }
 
 function renderUI(data) {
@@ -41,8 +105,8 @@ function renderUI(data) {
   }
 
   const walletChip = $("#wallet-chip");
-  if (walletChip && data.wallet) {
-    walletChip.innerHTML = `<span class="wallet-dot"></span><b>${shortAddr(data.wallet)}</b><small>${data.sttBalance || "0"} STT · ${data.usdcBalance || "0"} tUSDC</small>`;
+  if (walletChip && state.wallet) {
+    walletChip.innerHTML = `<span class="wallet-dot"></span><b>${shortAddr(state.wallet)}</b><small>${data.sttBalance || "0"} STT · ${data.usdcBalance || "0"} tUSDC</small>`;
   }
 
   // 2. Pulse Card
@@ -482,6 +546,19 @@ async function runSentinelCycle() {
   const btn = $("#btn-run-sentinel");
   const banner = $("#action-feedback");
   if (state.isRunning) return;
+  if (!state.wallet) {
+    setWalletFeedback("Connect MetaMask or Rabby before requesting a live cycle.", "error");
+    return;
+  }
+  if (!state.provider) {
+    setWalletFeedback("Wallet provider unavailable. Reconnect your wallet.", "error");
+    return;
+  }
+  const chainId = await state.provider.request({ method: "eth_chainId" });
+  if (chainId.toLowerCase() !== SOMNIA_CHAIN_ID) {
+    setWalletFeedback("Switch your wallet to Somnia Shannon before trading.", "error");
+    return;
+  }
 
   state.isRunning = true;
   if (btn) {
@@ -622,7 +699,7 @@ async function claimSingleTrade(tradeId) {
       banner.style.display = "block";
       if (result.success) {
         banner.className = "feedback-banner success";
-        banner.innerHTML = `💰 <strong>Trade #${tradeId} Claimed:</strong> Received <strong>+$${result.payoutAmount} tUSDC</strong>! <a href="${result.explorerUrl}" target="_blank" class="tx-link">View Tx ↗</a>`;
+        banner.innerHTML = `💰 <strong>Trade #${tradeId} Claimed:</strong> Received <strong>+$${result.payoutAmount} tUSDC</strong>! <a href="${result.explorerUrl}" target="_blank" class="tx-link">View Tx ���</a>`;
       } else {
         banner.className = "feedback-banner error";
         banner.textContent = `Claim notice: ${result.reason || "Unable to redeem on-chain"}`;
@@ -675,8 +752,11 @@ async function claimFaucet() {
   }
 }
 
-// Attach event listeners
-window.addEventListener("DOMContentLoaded", () => {
+  // Attach event listeners
+  window.addEventListener("DOMContentLoaded", () => {
+  const connectBtn = $("#btn-connect-wallet");
+  if (connectBtn) connectBtn.addEventListener("click", connectWallet);
+
   const runBtn = $("#btn-run-sentinel");
   if (runBtn) runBtn.addEventListener("click", runSentinelCycle);
 
